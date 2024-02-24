@@ -14,7 +14,7 @@ class ManageFolders:
     def search_folder(self):
         folder = diropenbox(title="Seleccione la carpeta de Lethal Company")
         if folder == "" or folder == None:
-            raise FileNotFoundError("Seleccione una carpeta valida")
+            raise FileNotFoundError("Seleccione una carpeta")
         return folder
 
     def get_yml(self):
@@ -25,6 +25,8 @@ class ManageFolders:
             return file
         raise request
 
+
+# i dont know as this works
     def case_bepinex_plugins_dll(self, path_folder: str, full_name: str):
         plugins_folder = path_folder+"BepInEx"+"\\"+"plugins"
 
