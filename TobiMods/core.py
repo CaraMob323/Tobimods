@@ -6,27 +6,11 @@ from .helpers import *
 from easygui import diropenbox
 from concurrent.futures import ThreadPoolExecutor
 
-class ManageFolders:
+
+class ManageCases: # I don't know as this works but works
     def __init__(self) -> None:
-        self.lethal_path = self.search_folder()
-        self.yml = self.get_yml()
+        pass
 
-    def search_folder(self):
-        folder = diropenbox(title="Seleccione la carpeta de Lethal Company")
-        if folder == "" or folder == None:
-            raise FileNotFoundError("Seleccione una carpeta")
-        return folder
-
-    def get_yml(self):
-        url = "https://raw.githubusercontent.com/CaraMob323/Tobimods/main/mods.yml"
-        request = requests.get(url)
-        if request.status_code == 200:
-            file = yaml.safe_load(request.text)
-            return file
-        raise request
-
-
-# i dont know as this works
     def case_bepinex_plugins_dll(self, path_folder: str, full_name: str):
         plugins_folder = path_folder+"BepInEx"+"\\"+"plugins"
 
@@ -50,8 +34,6 @@ class ManageFolders:
         plugins_folder = path_folder+"plugins"
 
         file_destination = plugins_folder+"\\"+full_name
-        os.makedirs(file_destination, exist_ok=True)
-
         content_mod = os.listdir(path_folder)
         content_plugins = os.listdir(plugins_folder)
 
@@ -125,7 +107,7 @@ class ManageFolders:
     
 
         shutil.copytree(path_folder, self.lethal_path, dirs_exist_ok=True)
-
+    
 class GetFilesRules:
     def __init__(self) -> None:
         self.files_rules = {}
@@ -175,6 +157,26 @@ class GetFilesRules:
         else:
             return None        
 
+
+class ManageFolders:
+    def __init__(self) -> None:
+        self.lethal_path = self.search_folder()
+        self.yml = self.get_mods_list()
+
+    def search_folder(self):
+        folder = diropenbox(title="Seleccione la carpeta de Lethal Company")
+        if folder == "" or folder == None:
+            raise FileNotFoundError("Seleccione una carpeta")
+        return folder
+
+    def get_mods_list(self):
+        url = "https://raw.githubusercontent.com/CaraMob323/Tobimods/main/mods.yml"
+        request = requests.get(url)
+        if request.status_code == 200:
+            file = yaml.safe_load(request.text)
+            return file
+        raise request
+
 class IdentifyMods(ManageFolders):
     def __init__(self) -> None:
         ManageFolders.__init__(self)
@@ -185,7 +187,7 @@ class IdentifyMods(ManageFolders):
         self.outdated_mods = []
         self.information_mods = {}
 
-    def identify_versions_local(self):
+    def identify_local_version(self):
         for dirpath, dirnames, filenames in os.walk(os.path.join(self.lethal_path, "BepInEx", "plugins")):
             for filename in filenames:
                 if filename == "manifest.json":
@@ -210,8 +212,23 @@ class IdentifyMods(ManageFolders):
 
         with ThreadPoolExecutor(2) as executor:
             executor.map(process_mod, self.information_mods.keys())
-        
-    
+
+    def identify_author_mods(self):
+            mods: list = self.yml
+            for mod_name in self.information_mods:
+                for mod in mods:
+                    if mod["displayName"] == mod_name:
+                        mods.remove(mod)
+                        self.information_mods[mod_name]["author"] = mod["authorName"]
+                    else:
+                        self.extra_mods.append(mod_name)
+            self.identify_missing_mods()
+            for mod_name in self.missing_mods:
+                for mod in mods:
+                    if mod["displayName"] == mod_name:
+                        self.information_mods.setdefault(mod_name, {}).update({"author": mod["authorName"], "local_version": "", "latest_version": ""})
+            self.yml = self.get_yml()
+
     def identify_outdated_mods(self, mod_name):
         if self.information_mods[mod_name]["latest_version"] != self.information_mods[mod_name]["local_version"] and self.information_mods[mod_name]["local_version"] != "":
             self.outdated_mods.append(mod_name)
@@ -232,24 +249,6 @@ class IdentifyMods(ManageFolders):
             if mod_exits == False:
                 print(mod_name, "ELIMINA ESTE MOD QUE YO NO QUIERO JAJA XD")
                 return True
-
-
-    def identify_author_mods(self):
-        mods: list = self.yml
-        for mod_name in self.information_mods:
-            for mod in mods:
-                if mod["displayName"] == mod_name:
-                    mods.remove(mod)
-                    self.information_mods[mod_name]["author"] = mod["authorName"]
-                else:
-                    self.extra_mods.append(mod_name)
-        self.identify_missing_mods()
-        for mod_name in self.missing_mods:
-            for mod in mods:
-                if mod["displayName"] == mod_name:
-                    self.information_mods.setdefault(mod_name, {}).update({"author": mod["authorName"], "local_version": "", "latest_version": ""})
-        self.yml = self.get_yml()
-
 
     def identify_one_case(self, name: str):
         self.rules.get_file_rules(self.lethal_path+"\\"+name)
@@ -297,10 +296,11 @@ class ManageMods:
             os.remove(f"{self.identify.lethal_path}\\{mod_name}.zip")
             self.identify.identify_one_case(mod_name)
 
-test = ManageMods()
-print("Verificando mods...")
-test.identify.identify_versions_local()
-test.identify.identify_author_mods()
-test.identify.identify_latest_version()
-test.install_all()
-input("PRESIONE ENTER PARA CERRAR")
+if "__main__" == __name__:
+    test = ManageMods()
+    print("Verificando mods...")
+    test.identify.identify_versions_local()
+    test.identify.identify_author_mods()
+    test.identify.identify_latest_version()
+    test.install_all()
+    input("PRESIONE ENTER PARA CERRAR")

@@ -1,1 +1,1 @@
-from .core import ManageMods
+from .core import *
