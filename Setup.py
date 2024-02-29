@@ -12,7 +12,7 @@ with open("requeriments.txt", "r") as file:
 
 setup(
     name='TobiMods',
-    version='0.0.1',
+    version='0.0.2',
     description='R2modman but poor',
     long_description=readme,
     author='Cara',

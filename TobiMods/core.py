@@ -2,9 +2,24 @@ import os
 import requests
 import zipfile
 import shutil
-from helpers import *
 from easygui import diropenbox
 from concurrent.futures import ThreadPoolExecutor
+
+import json
+import yaml
+
+def save_json(path: str, name: str, saved: str):
+    with open(path+"\\"+name, "w+") as file:
+        json.dump(saved, file, indent=4)
+
+def read_json(path: str):
+    with open(path, "r", encoding="utf-8-sig") as file:
+        return json.load(file)
+    
+def read_yaml(path: str):
+    with open(path, "r") as file:
+        return yaml.load(file, Loader = yaml.SafeLoader)
+        
 
 class GetFilesRules:
     def __init__(self) -> None:
@@ -19,15 +34,15 @@ class GetFilesRules:
                 if os.path.isfile(full_path) and item.endswith(".dll"):
                     self.files_rules[mod_name] = {
                         "path_.dll": full_path,
-                        "path_bepinex": self.get_rule_path(dirlist, "bepinex"),
-                        "path_plugins": self.get_rule_path(dirlist, "plugins"),
+                        "path_bepinex": self.__get_rule_path(dirlist, "bepinex"),
+                        "path_plugins": self.__get_rule_path(dirlist, "plugins"),
                         "path_manifest": None
                     }
                 elif os.path.isdir(full_path) and full_path.split("\\")[-1].lower() == "plugins":
                         self.files_rules[mod_name] = {
                             "path_.dll": None,
-                            "path_bepinex": self.get_rule_path(dirlist, "bepinex"),
-                            "path_plugins": self.get_rule_path(dirlist, "plugins"),
+                            "path_bepinex": self.__get_rule_path(dirlist, "bepinex"),
+                            "path_plugins": self.__get_rule_path(dirlist, "plugins"),
                             "path_manifest": None
                         }
 
@@ -45,7 +60,7 @@ class GetFilesRules:
                             "path_manifest": os.path.join(dirpath, filename)
                         }
                     
-    def get_rule_path(self, dirname: list, folder: str):
+    def __get_rule_path(self, dirname: list, folder: str):
         lower_dirnames = [lower_dirname.lower() for lower_dirname in dirname]
         if folder in lower_dirnames:
             for i in range(len(dirname)):
@@ -194,7 +209,8 @@ class ManageCases: # I don't know as this works but works
     
 
         shutil.copytree(path_folder, self.lethal_path, dirs_exist_ok=True)
-    
+
+
 class IdentifyMods:
     def __init__(self) -> None:
         self.manage_cases = ManageCases()
@@ -211,7 +227,11 @@ class IdentifyMods:
                 if filename == "manifest.json":
                     path = os.path.join(dirpath, "manifest.json")
                     file = read_json(path)
-                    self.information_mods.setdefault(file["name"], {}).update({"author": "", "local_version": file["version_number"], "latest_version": ""})
+                    self.information_mods.setdefault(file["name"], {}).update({
+                        "author": "", 
+                        "local_version": file["version_number"], 
+                        "latest_version": ""
+                    })
 
     def identify_latest_version(self):
 
@@ -240,8 +260,6 @@ class IdentifyMods:
                     if mod["displayName"] == mod_name:
                         mods.remove(mod)
                         self.information_mods[mod_name]["author"] = mod["authorName"]
-                    else:
-                        self.extra_mods.append(mod_name)
             for mod in self.manage_cases.manage_folders.yml:
                 self.missing_mods.append(mod["displayName"])
             for mod_name in self.missing_mods:
@@ -268,7 +286,8 @@ class IdentifyMods:
                     mod_exits = True
                     return False
             if mod_exits == False:
-                print(mod_name, "ELIMINA ESTE MOD QUE YO NO QUIERO JAJA XD")
+                print(mod_name, "EXTRA")
+                self.extra_mods.append(mod_name)
                 return True
     
 class ManageMods:
@@ -292,6 +311,22 @@ class ManageMods:
         with zipfile.ZipFile(path+"\\"+name+".zip", "r") as extract:
             extract.extractall(path+"\\"+name)
 
+    def unistall_mod(self, mod_name):
+        if mod_name in self.identify.extra_mods:
+            for dirpath, dirnames, filenames in os.walk(os.path.join(self.identify.lethal_path, "BepInEx", "plugins")):
+                for item in dirnames + filenames:
+                    path: str = dirpath+"\\"+item
+                    if os.path.isfile(path) and item == "manifest.json":
+                        path_split = path.split("\\")
+                        path_split = [x + "\\" for x in path_split]
+                        pathlist = path_split[:-1]
+                        final_path = os.path.join(*pathlist)
+                        if pathlist[-1].split("-")[-1][:-1] == mod_name:
+                            shutil.rmtree(final_path)
+                            self.identify.extra_mods.remove(mod_name)
+                            print("Desinstalado")
+                            break
+
     def install_all(self):
         print("\r\nInstalando...")
         for mod_name in self.identify.outdated_mods + self.identify.missing_mods:
@@ -299,6 +334,17 @@ class ManageMods:
             self.extract_mod(mod_name, self.identify.lethal_path)
             os.remove(f"{self.identify.lethal_path}\\{mod_name}.zip")
             self.cases.choose_case(mod_name, self.identify.information_mods[mod_name]["author"])
+        
+        print("\r\nDesinstalando...")
+        for mod_name in self.identify.extra_mods:
+            question = input(f"QUERES DESINSTALAR ESTE MOD: {mod_name} (s/n): ")
+            match question:
+                case "s":
+                    self.unistall_mod(mod_name)
+                case "n":
+                    pass
+                case _:
+                    self.unistall_mod(mod_name)
 
 if "__main__" == __name__:
     test = ManageMods()

@@ -1,8 +1,0 @@
-{
-    "mods test": {
-        "path_.dll": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods test\\x753-Mimics-2.4.1\\BepInEx\\plugins\\Mimics.dll",
-        "path_bepinex": "C:Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods test\\x753-Mimics-2.4.1",
-        "path_plugins": "C:Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods test\\x753-Mimics-2.4.1\\BepInEx",
-        "path_manifest": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods test\\x753-Mimics-2.4.1\\manifest.json"
-    }
-}
