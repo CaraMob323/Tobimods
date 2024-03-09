@@ -2,86 +2,122 @@ import os
 import requests
 import zipfile
 import shutil
+import asyncio
+import time
+import aiohttp
+
+from helpers import *
+from constant import LethalConstant 
+from aiohttp.client import ClientSession
 from easygui import diropenbox
-from concurrent.futures import ThreadPoolExecutor
+from abc import ABC, abstractmethod
 
-import json
-import yaml
+constant = LethalConstant()
 
-def save_json(path: str, name: str, saved: str):
-    with open(path+"\\"+name, "w+") as file:
-        json.dump(saved, file, indent=4)
 
-def read_json(path: str):
-    with open(path, "r", encoding="utf-8-sig") as file:
-        return json.load(file)
-    
-def read_yaml(path: str):
-    with open(path, "r") as file:
-        return yaml.load(file, Loader = yaml.SafeLoader)
+# Abstract classes in case i can think of other ways to get information
+class GetLocalVersion(ABC):
+    @abstractmethod
+    def __init__(self) -> None:
+        pass
+    @abstractmethod
+    def get_version(self, mod_name: str) -> str:
+        pass
+
+class GetLatestVersion(ABC):
+    @abstractmethod
+    def __init__(self) -> None:
+        pass
+    @abstractmethod
+    def get_version(self, mod_name: str) -> str:
+        pass
+
+class GetModInfo(ABC):
+    @abstractmethod
+    def __init__(self) -> None:
+        pass
+    @abstractmethod
+    def get_container(self) -> dict:
+        pass
+
+
+class GetLocalVersionManifest(GetLocalVersion):
+    def __init__(self, game_path, test_mode = False) -> None:
+        self.game_path = game_path
+        self.local_version = {}
+        self.search_manifest_bepinex(test_mode)
         
-
-class GetFilesRules:
-    def __init__(self) -> None:
-        self.files_rules = {}
-              
-    def get_file_rules(self, path: str):
-        for dirpath, dirnames, filenames in os.walk(os.path.join(path)):
-            for item in filenames + dirnames:
-                full_path = os.path.join(dirpath, item)
-                dirlist = full_path.split(os.sep)
-                mod_name = path.split("\\")[-1]
-                if os.path.isfile(full_path) and item.endswith(".dll"):
-                    self.files_rules[mod_name] = {
-                        "path_.dll": full_path,
-                        "path_bepinex": self.__get_rule_path(dirlist, "bepinex"),
-                        "path_plugins": self.__get_rule_path(dirlist, "plugins"),
-                        "path_manifest": None
-                    }
-                elif os.path.isdir(full_path) and full_path.split("\\")[-1].lower() == "plugins":
-                        self.files_rules[mod_name] = {
-                            "path_.dll": None,
-                            "path_bepinex": self.__get_rule_path(dirlist, "bepinex"),
-                            "path_plugins": self.__get_rule_path(dirlist, "plugins"),
-                            "path_manifest": None
-                        }
-
-        for dirpath, dirnames, filenames in os.walk(os.path.join(path)):
+    def get_version(self, mod_name: str):
+        if mod_name in self.local_version:
+            local_version = self.local_version[mod_name]
+            return local_version
+        return False
+        
+    def search_manifest_bepinex(self, test_mode = False) -> None:
+        path_to_scan = [self.game_path] if test_mode else [self.game_path, constant.BEPINEX_NAME, constant.PLUGINS_NAME]
+        for dirpath, dirnames, filenames in os.walk(os.path.join(*path_to_scan)):
             for filename in filenames:
-                if filename == "manifest.json":
-                    dirlist = dirpath.split(os.sep)
-                    if mod_name in self.files_rules:
-                        self.files_rules[mod_name]["path_manifest"] = os.path.join(dirpath, filename)
-                    else:
-                        self.files_rules[mod_name] = {
-                            "path_.dll": None,
-                            "path_bepinex": None,
-                            "path_plugins": None,
-                            "path_manifest": os.path.join(dirpath, filename)
-                        }
-                    
-    def __get_rule_path(self, dirname: list, folder: str):
-        lower_dirnames = [lower_dirname.lower() for lower_dirname in dirname]
-        if folder in lower_dirnames:
-            for i in range(len(dirname)):
-                if lower_dirnames[i] == folder:
-                    return os.path.join(*dirname[:i+1])
-        else:
-            return None        
+                if filename == constant.MANIFEST_NAME:
+                    full_dirpath = os.path.join(dirpath, filename)
+                    manifest = read_json(full_dirpath)
+                    self.local_version[manifest["name"]] = manifest["version_number"]
 
-class ManageFolders:
+class GetLatestVersionThunder(GetLatestVersion):
+    def __init__(self, container: dict) -> None:
+        self.latest_version = {}
+        self.container = container
+        asyncio.run(self.search_all_versions())
+
+    def get_version(self, mod_name: str) -> str:
+        if mod_name in self.latest_version:
+            return self.latest_version[mod_name]["version"]
+    
+    def get_download_url(self, mod_name: str) -> str:
+        if mod_name in self.latest_version:
+            return self.latest_version[mod_name]["download_url"]
+
+    async def download_link(self, url:str,session:ClientSession, max_retries=4):
+        async with session.get(url) as response:
+            if response.status == 200:
+                result = await response.json()
+                print(result["name"], "ANALIZADO")
+                self.latest_version[result["name"]] = {
+                    "version": result["latest"]["version_number"],
+                    "download_url": result["latest"]["download_url"]
+                }
+            else:
+                if max_retries > 0:
+                    await asyncio.sleep(2) 
+                    await self.download_link(url, session, max_retries - 1)
+                else:
+                    raise TimeoutError("API 429 ERROR")
+
+
+    async def search_all_versions(self):
+        my_conn = aiohttp.TCPConnector(limit=5)
+        async with aiohttp.ClientSession(connector=my_conn) as session:
+            tasks = []
+            for name, author in self.container.items():
+                url = f"https://thunderstore.io/api/experimental/package/{author}/{name}/"
+                task = asyncio.ensure_future(self.download_link(url=url,session=session))
+                tasks.append(task)
+            await asyncio.gather(*tasks,return_exceptions=True) # the await must be nest inside of the session
+
+class GetModInfoYML(GetModInfo):
     def __init__(self) -> None:
-        self.lethal_path = None
-        self.search_folder()
-        self.yml = self.get_mods_list()
+        self.mods = {}
 
-    def search_folder(self):
-        folder = diropenbox(title="Seleccione la carpeta de Lethal Company")
-        if folder == "" or folder == None:
-            raise FileNotFoundError("Seleccione una carpeta")
-        self.lethal_path = folder
+    def get_container(self) -> dict:
+        if self.mods == {}:
+            yml = self.__get_yml()
+            for mod in yml:
+                self.mods[mod["displayName"]] = mod["authorName"]
+            with open("a.json", "w") as file:
+                json.dump(self.mods, file, indent=4)
+            return self.mods
+        return self.mods
 
-    def get_mods_list(self):
+    def __get_yml(self) -> yaml:
         url = "https://raw.githubusercontent.com/CaraMob323/Tobimods/main/mods.yml"
         request = requests.get(url)
         if request.status_code == 200:
@@ -89,268 +125,240 @@ class ManageFolders:
             return file
         raise request
 
-class ManageCases: # I don't know as this works but works
-    def __init__(self) -> None:
-        self.manage_folders = ManageFolders()
-        self.lethal_path = self.manage_folders.lethal_path
-        self.rules = GetFilesRules()
+class SearchMods:
+    def __init__(self, local_version: GetLocalVersionManifest, latest_version: GetLatestVersionThunder) -> None:
+        self.local_version = local_version
+        self.latest_version = latest_version
 
-    def choose_case(self, name: str, author: str):
-        self.rules.get_file_rules(self.lethal_path+"\\"+name)
-        manifest = self.rules.files_rules[name]["path_manifest"]
-        pathlist = manifest.split("\\")
-        full_name = author+"-"+pathlist[-2]
-        pathlist = [x + "\\" for x in pathlist]
-        pathlist = pathlist[:-1]
-        path = os.path.join(*pathlist)
-        if self.rules.files_rules[name]["path_bepinex"] == None:
-            self.case_folder_dll(path, full_name)
-        elif self.rules.files_rules[name]["path_bepinex"] != None and self.rules.files_rules[name]["path_plugins"] != None:
-            self.case_bepinex_plugins_dll(path, full_name)
-        else:
-            self.case_bepinex_dll(path, full_name)
-        shutil.rmtree(path)
-        print(name, "se descargo bien xd")
+        self.outdated_mod = []
+        self.missing_mod = []
+        self.extra_mod = []
 
-    def case_bepinex_plugins_dll(self, path_folder: str, full_name: str):
-        plugins_folder = path_folder+"BepInEx"+"\\"+"plugins"
+    def is_outdated_mod(self, mod_name: str) -> bool:
+        local_version = self.local_version.get_version(mod_name)
+        latest_version = self.latest_version.get_version(mod_name)
 
-        file_destination = plugins_folder+"\\"+full_name
-        content_mod = os.listdir(path_folder)
-        content_plugins = os.listdir(plugins_folder)
+        if not local_version or latest_version == None or latest_version == "":
+            return False
 
-        os.makedirs(file_destination, exist_ok=True)
-
-        for item in content_plugins:
-            item_path = os.path.join(plugins_folder, item)
-            shutil.move(item_path, file_destination)
-        for item in content_mod:
-            item_path = path_folder+"\\"+item
-            if os.path.isfile(item_path):
-                shutil.move(item_path, file_destination)
-
-        shutil.copytree(path_folder, self.lethal_path, dirs_exist_ok=True)
+        if local_version != latest_version:
+            self.outdated_mod.append(mod_name)
+            return True
+        return False
     
-    def case_folder_dll(self, path_folder: str, full_name: str):
-        plugins_folder = path_folder+"plugins"
-
-        os.makedirs(plugins_folder, exist_ok=True)
-        file_destination = plugins_folder+"\\"+full_name
-        content_mod = os.listdir(path_folder)
-        content_plugins = os.listdir(plugins_folder)
-
-        os.makedirs(file_destination, exist_ok=True)
-
-        for item in content_plugins:
-            item_path = os.path.join(plugins_folder, item)
-            shutil.move(item_path, file_destination)
-        for item in content_mod:
-            item_path = path_folder+"\\"+item
-            if os.path.isfile(item_path):
-                shutil.move(item_path, file_destination)
-            if os.path.isdir(item_path) and item[0].isupper():
-                content = os.listdir(item_path)
-                for item in content:
-                    path = item_path+"\\"+item
-                    if os.path.isdir(path):
-                        if item == "plugins":
-                            content = os.listdir(path)
-                            for item in content:
-                                item_path2 = path+"\\"+item
-                                shutil.move(item_path2, file_destination)
-                    else:
-                        shutil.move(path, file_destination)
-                shutil.rmtree(item_path)
-                
-        shutil.copytree(path_folder, f"{self.lethal_path}/BepInEx", dirs_exist_ok=True)
-
-    def case_bepinex_dll(self, path_folder: str, full_name: str):
-        plugins_folder = path_folder+"BepInEx"+"\\"+"plugins"
-        bepinex_folder = path_folder+"BepInEx"
-        os.makedirs(plugins_folder, exist_ok=True)
-
-        file_destination = plugins_folder+"\\"+full_name
-        content_mod = os.listdir(path_folder)
-
-        os.makedirs(file_destination, exist_ok=True)
-        files_moved = False
-        for item in content_mod:
-            item_path = path_folder+"\\"+item
-            if os.path.isfile(item_path):
-                shutil.move(item_path, file_destination)
-                files_moved = True
-
-            elif os.path.isdir(item_path) and item != "BepInEx":
-                content = os.listdir(item_path)
-                for item in content:
-                    path = item_path+"\\"+item
-                    if os.path.isfile(path) and "manifest.json" in content and files_moved == False:
-                        shutil.move(path, file_destination)
-                    elif os.path.isfile(path) and not "manifest.json" in content:
-                        shutil.move(path, path_folder)
-                    if os.path.isdir(path):
-                        sub_content = os.listdir(path)
-                        for sub_item in sub_content:
-                            sub_path = path+"\\"+sub_item
-                            if sub_item == "plugins":
-                                sub_sub_content = os.listdir(sub_path)
-                                for sub_sub_item in sub_sub_content:
-                                    sub_sub_path = sub_path+"\\"+sub_sub_item
-                                    shutil.move(sub_sub_path, file_destination)
-                            else:
-                                shutil.move(sub_path, bepinex_folder)
-        
-        for rest_item in content_mod:
-            rest_path = path_folder+"\\"+rest_item
-            if os.path.isdir(rest_path) and rest_item != "BepInEx":
-                shutil.rmtree(rest_path)
-                pass
-
+    def is_missing_mod(self, mod_name: str) -> bool:
+        if not self.local_version.get_version(mod_name):
+            self.missing_mod.append(mod_name)
+            return True
+        return False
     
+    def is_extra_mod(self, mod_name: str, container: dict) -> bool:
+        if mod_name in container:
+            return False
+        self.extra_mod.append(mod_name)
+        return True
 
-        shutil.copytree(path_folder, self.lethal_path, dirs_exist_ok=True)
+class DownloadManager:
+    def __init__(self, game_path) -> None:
+        self.game_path = game_path
 
-
-class IdentifyMods:
-    def __init__(self) -> None:
-        self.manage_cases = ManageCases()
-        self.lethal_path = self.manage_cases.lethal_path
-
-        self.missing_mods = []
-        self.extra_mods = []
-        self.outdated_mods = []
-        self.information_mods = {}
-
-    def identify_local_version(self):
-        for dirpath, dirnames, filenames in os.walk(os.path.join(self.lethal_path, "BepInEx", "plugins")):
-            for filename in filenames:
-                if filename == "manifest.json":
-                    path = os.path.join(dirpath, "manifest.json")
-                    file = read_json(path)
-                    self.information_mods.setdefault(file["name"], {}).update({
-                        "author": "", 
-                        "local_version": file["version_number"], 
-                        "latest_version": ""
-                    })
-
-    def identify_latest_version(self):
-
-        def process_mod(mod_name):
-            if self.identify_extra_mods(mod_name) == False:
-                url = f"https://thunderstore.io/api/experimental/package/{self.information_mods[mod_name]['author']}/{mod_name}/"
-                response = requests.get(url)
-                if response.status_code == 200:
-                    json_mod = response.json()
-                    self.information_mods[mod_name]["latest_version"] = json_mod["latest"]["version_number"]
-                    self.information_mods[mod_name]["download_url"] = json_mod["latest"]["download_url"]
-                    self.identify_outdated_mods(mod_name)
-                    self.identify_missing_mods(mod_name)
-
-                if response.status_code != 200:
-                    print("INTENTA DE NUEVO, FALLO CATASTROFICO")
-
-        with ThreadPoolExecutor(2) as executor:
-            executor.map(process_mod, self.information_mods.keys())
-        
-
-    def identify_author_mods(self):
-            mods: list = self.manage_cases.manage_folders.yml
-            for mod_name in self.information_mods:
-                for mod in mods:
-                    if mod["displayName"] == mod_name:
-                        mods.remove(mod)
-                        self.information_mods[mod_name]["author"] = mod["authorName"]
-            for mod in self.manage_cases.manage_folders.yml:
-                self.missing_mods.append(mod["displayName"])
-            for mod_name in self.missing_mods:
-                for mod in mods:
-                    if mod["displayName"] == mod_name:
-                        self.information_mods.setdefault(mod_name, {}).update({"author": mod["authorName"], "local_version": "", "latest_version": ""})
-            self.manage_cases.manage_folders.yml = self.manage_cases.manage_folders.get_mods_list()
-
-    def identify_outdated_mods(self, mod_name):
-        if self.information_mods[mod_name]["latest_version"] != self.information_mods[mod_name]["local_version"] and self.information_mods[mod_name]["local_version"] != "":
-            self.outdated_mods.append(mod_name)
-            print(mod_name, "TA DESACTUALIZADO")
-        elif self.information_mods[mod_name]["local_version"] != "":
-            print(mod_name, "ACTUALIZADO")
-
-    def identify_missing_mods(self, mod_name: str):
-        if self.information_mods[mod_name]["local_version"] == "":
-            print(mod_name, "NO ESTA")
-
-    def identify_extra_mods(self, mod_name):
-            mod_exits: bool = False
-            for mod in self.manage_cases.manage_folders.yml:
-                if mod.get("displayName") == mod_name:
-                    mod_exits = True
-                    return False
-            if mod_exits == False:
-                print(mod_name, "EXTRA")
-                self.extra_mods.append(mod_name)
-                return True
-    
-class ManageMods:
-    def __init__(self) -> None:
-        self.identify = IdentifyMods()
-        self.cases = self.identify.manage_cases
-
-    def download_mod(self, url: str, name: str, path: str):
+    def download_mod(self, mod_name: str, download_url: str) -> None:
         while True:
-            print(name, "Intentando descargar")
-            request = requests.get(url, allow_redirects=True)
+            request = requests.get(download_url, allow_redirects=True)
             if request.status_code == 200:
-                path = os.path.join(path, name)
-                with open(path + ".zip", "wb+") as file:
+                path = os.path.join(self.game_path, mod_name)
+                with open(path+".zip", "wb+") as file:
                     for chunk in request.iter_content(chunk_size=128):
                         if chunk:
                             file.write(chunk)
                 break
 
-    def extract_mod(self, name: str, path: str):
-        with zipfile.ZipFile(path+"\\"+name+".zip", "r") as extract:
-            extract.extractall(path+"\\"+name)
-
-    def unistall_mod(self, mod_name):
-        if mod_name in self.identify.extra_mods:
-            for dirpath, dirnames, filenames in os.walk(os.path.join(self.identify.lethal_path, "BepInEx", "plugins")):
-                for item in dirnames + filenames:
-                    path: str = dirpath+"\\"+item
-                    if os.path.isfile(path) and item == "manifest.json":
-                        path_split = path.split("\\")
-                        path_split = [x + "\\" for x in path_split]
-                        pathlist = path_split[:-1]
-                        final_path = os.path.join(*pathlist)
-                        if pathlist[-1].split("-")[-1][:-1] == mod_name:
-                            shutil.rmtree(final_path)
-                            self.identify.extra_mods.remove(mod_name)
-                            print("Desinstalado")
-                            break
-
-    def install_all(self):
-        print("\r\nInstalando...")
-        for mod_name in self.identify.outdated_mods + self.identify.missing_mods:
-            self.download_mod(self.identify.information_mods[mod_name]["download_url"], mod_name, self.identify.lethal_path)
-            self.extract_mod(mod_name, self.identify.lethal_path)
-            os.remove(f"{self.identify.lethal_path}\\{mod_name}.zip")
-            self.cases.choose_case(mod_name, self.identify.information_mods[mod_name]["author"])
+    def extract_mod(self, mod_name: str, extract_to: str) -> str:
+        with zipfile.ZipFile(os.path.join(self.game_path, mod_name+".zip"), "r") as extract:
+            extract.extractall(extract_to)
         
-        print("\r\nDesinstalando...")
-        for mod_name in self.identify.extra_mods:
-            question = input(f"QUERES DESINSTALAR ESTE MOD: {mod_name} (s/n): ")
-            match question:
-                case "s":
-                    self.unistall_mod(mod_name)
-                case "n":
-                    pass
-                case _:
-                    self.unistall_mod(mod_name)
+    def delete_mod(self, mod_name: str) -> None:
+        path = os.path.join(self.game_path, constant.BEPINEX_NAME, constant.PLUGINS_NAME)
+        listdir = os.listdir(path)
+        for i in listdir:
+            author = i.split("-")[0]
+            mod_path = os.path.join(path, author+"-"+mod_name)
+            if os.path.exists(mod_path):
+                shutil.rmtree(mod_path) 
 
-if "__main__" == __name__:
-    test = ManageMods()
-    print("Verificando mods...")
-    test.identify.identify_local_version()
-    test.identify.identify_author_mods()
-    test.identify.identify_latest_version()
-    test.install_all()
-    input("PRESIONE ENTER PARA CERRAR")
+# Class in charge of entering the mods into Lethal Company folder.
+class FilesManagerLethal:
+    def __init__(self, game_path) -> None:
+        self.game_path = game_path
+
+    def move_dirs(self, fullname_mod: str, mod_path: str, *destination_path: str) -> None:
+        bepinex_folder = os.path.join(self.game_path, fullname_mod)
+        destination_path = os.path.join(self.game_path, *destination_path)
+
+        if not os.path.exists(destination_path):
+            os.makedirs(bepinex_folder, exist_ok=True)
+            os.makedirs(destination_path, exist_ok=True)
+        listdir = os.listdir(mod_path)
+
+        for dirname in listdir:
+            if dirname.lower() != constant.PLUGINS_NAME:
+                file_path = os.path.join(mod_path, dirname)
+                shutil.move(file_path, destination_path)
+        
+        shutil.copytree(bepinex_folder, self.game_path, dirs_exist_ok=True)
+        
+    def move_files(self, fullname_mod: str, mod_path: str, *destination_path: str):
+        bepinex_folder = os.path.join(self.game_path, fullname_mod)
+        destination_path = os.path.join(self.game_path, *destination_path)
+
+        if not os.path.exists(destination_path):
+            os.makedirs(bepinex_folder, exist_ok=True)
+            os.makedirs(destination_path, exist_ok=True)
+        listdir = os.listdir(mod_path)
+
+        for dirname in listdir:
+                file_path = os.path.join(mod_path, dirname)
+                if os.path.isfile(file_path):
+                    shutil.move(file_path, destination_path)
+        
+        shutil.copytree(bepinex_folder, self.game_path, dirs_exist_ok=True)
+
+
+    def process_folder(self, mod_path: str, fullname_mod: str):
+        listdir = os.listdir(mod_path)
+        lower_listdir = [dirfile.lower() for dirfile in listdir]
+
+        if constant.MANIFEST_NAME in lower_listdir:
+            self.is_manifest(mod_path, fullname_mod)
+
+        for file in lower_listdir:
+            if file.endswith(".dll"):
+                self.is_dll(mod_path, fullname_mod)
+        
+        listdir = os.listdir(mod_path)
+        lower_listdir = [dirfile.lower() for dirfile in listdir]
+
+        if listdir != []:
+            if constant.BEPINEX_NAME in lower_listdir:
+                self.is_bepinex(mod_path, fullname_mod)
+            elif constant.PLUGINS_NAME in lower_listdir:
+                self.is_plugins(mod_path, fullname_mod)
+            else:
+                self.is_other(mod_path, fullname_mod)
+    
+    def is_bepinex(self, mod_path: str, fullname_mod):
+        completed_path = os.path.join(mod_path, constant.BEPINEX_NAME)
+        listdir = os.listdir(completed_path)
+        lower_listdir = [dirfile.lower() for dirfile in listdir]
+
+        if not constant.PLUGINS_NAME in lower_listdir:
+            self.move_dirs(fullname_mod, completed_path, fullname_mod, constant.BEPINEX_NAME)
+        elif len(lower_listdir) > 1 and constant.PLUGINS_NAME in lower_listdir:
+            self.move_dirs(fullname_mod, completed_path, fullname_mod, constant.BEPINEX_NAME)
+            self.process_folder(completed_path, fullname_mod)
+        else:
+            self.process_folder(completed_path, fullname_mod)
+    
+    def is_plugins(self, mod_path: str, fullname_mod):
+        completed_path = os.path.join(mod_path, constant.PLUGINS_NAME)
+        listdir = os.listdir(completed_path)
+        if len(listdir) != 1:
+            self.process_folder(completed_path, fullname_mod)
+            return
+        self.move_dirs(fullname_mod, completed_path, fullname_mod, constant.BEPINEX_NAME, constant.PLUGINS_NAME, fullname_mod)
+
+    def is_dll(self, mod_path: str, fullname_mod):
+        listdir = os.listdir(mod_path)
+        lower_listdir = [dirfile.lower() for dirfile in listdir]
+        if constant.BEPINEX_NAME in lower_listdir:
+            self.move_files(fullname_mod, mod_path)
+        else:
+            self.move_dirs(fullname_mod, mod_path, fullname_mod, constant.BEPINEX_NAME, constant.PLUGINS_NAME, fullname_mod)
+
+    def is_other(self, mod_path: str, fullname_mod):
+        listdir = os.listdir(mod_path)
+        if "config" in listdir:
+            listdir.remove("config")
+        count_dirs = len(listdir)
+
+        for i in listdir:
+            if not os.path.isfile(os.path.join(mod_path, i)) and count_dirs == 1:
+                if "patchers" in listdir:
+                    self.move_dirs(fullname_mod, mod_path, fullname_mod,  constant.BEPINEX_NAME)
+                    return
+                completed_path = os.path.join(mod_path, *listdir)
+                self.process_folder(completed_path, fullname_mod)
+                return
+
+        self.move_dirs(fullname_mod, mod_path, fullname_mod, constant.BEPINEX_NAME, constant.PLUGINS_NAME, fullname_mod)
+
+    def is_manifest(self, mod_path: str, fullname_mod: str):
+        into_mod = os.path.join(self.game_path, fullname_mod, constant.BEPINEX_NAME, constant.PLUGINS_NAME, fullname_mod)
+        if not os.path.exists(into_mod):
+            self.move_files(fullname_mod, mod_path, fullname_mod, constant.BEPINEX_NAME, constant.PLUGINS_NAME, fullname_mod)
+
+
+def main():
+    game_path = diropenbox("Select the Lethal Company folder")
+    local_version = GetLocalVersionManifest(game_path)
+    get_mod_info = GetModInfoYML()
+    container = get_mod_info.get_container()
+
+    print("Searching latest versions...")
+    latest_version = GetLatestVersionThunder(container)
+    print("Done")
+    get_mod_info = GetModInfoYML()
+    search_mods = SearchMods(local_version, latest_version)
+    download_manager = DownloadManager(game_path)
+    move_files = FilesManagerLethal(game_path)
+
+    print("\r\nVerifying mods...")
+    
+    # TODO use this iteration to then put imgui.
+    for name in local_version.local_version:
+        if search_mods.is_extra_mod(name, container):
+            print(name, "EXTRA")
+
+        if search_mods.is_outdated_mod(name):
+            print(name, "OUTDATED")
+
+        if search_mods.is_missing_mod(name):
+            print(name, "MISSING")
+            
+
+    # The other iteration is not used to download and delete for better presentation.
+    total_mods = search_mods.outdated_mod + search_mods.missing_mod
+    if total_mods != []:
+        print("\r\Installing mods...")
+        for mod_name in total_mods:
+
+            author = container[mod_name]
+            fullname = author +"-"+ mod_name
+
+            extract_path = os.path.join(game_path, mod_name)
+            refactorized_path = os.path.join(game_path, fullname)
+
+            download_manager.download_mod(mod_name, latest_version.get_download_url(mod_name))
+            download_manager.extract_mod(mod_name, extract_path)
+            move_files.process_folder(extract_path, fullname)
+
+            shutil.rmtree(extract_path)
+            shutil.rmtree(refactorized_path)
+            os.remove(extract_path+".zip")
+
+    if search_mods.extra_mod != []:
+        print("\r\Unistalling mods...")
+        for mod_name in search_mods.extra_mod:
+            question = input(f"¿Deseas eliminar este mod: {mod_name} (y/n)?")
+            if question == "n":
+                pass
+            else:
+                download_manager.delete_mod(mod_name)
+
+                
+if __name__ == "__main__":
+    main()
+    input("\r\nPRESIONE ENTER PARA CONTINUAR")
+    # end = time.time()
+
+    # print("Tardo en instalar los mods un total de:", end - start, "segundos")

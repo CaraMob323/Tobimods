@@ -4,58 +4,48 @@ import os
 
 from context import TobiMods
 
-files_rules = TobiMods.core.GetFilesRules()
-identify_mods = TobiMods.core.IdentifyMods()
+class TestGetVersion(unittest.TestCase):
+    def test_get_local_version(self):
+        local_version = TobiMods.GetLocalVersionManifest("tests\\mods_test", test_mode=True)
+        version = local_version.get_version("BepInExPack")
+        self.assertNotIsInstance(version, bool, "The version shoudnt be a BoolType") 
+        self.assertEqual(version, "5.4.2100", f"The local version is not correct, {version}")
 
-class TestGetRules(unittest.TestCase):
-    def test_get_rules(self):
-        path = "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test"
-        folders = os.listdir(path)
-        expected_rules = {
-            "BepInEx-BepInExPack-5.4.2100": {
-                "path_.dll": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\BepInEx-BepInExPack-5.4.2100\\BepInExPack\\BepInEx\\core\\MonoMod.Utils.dll",
-                "path_bepinex": "C:Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\BepInEx-BepInExPack-5.4.2100\\BepInExPack\\BepInEx",
-                "path_plugins": None,
-                "path_manifest": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\BepInEx-BepInExPack-5.4.2100\\manifest.json"
-            },
-            "Evaisa-HookGenPatcher-0.0.5": {
-                "path_.dll": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\Evaisa-HookGenPatcher-0.0.5\\patchers\\BepInEx.MonoMod.HookGenPatcher\\MonoMod.RuntimeDetour.HookGen.dll",
-                "path_bepinex": None,
-                "path_plugins": None,
-                "path_manifest": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\Evaisa-HookGenPatcher-0.0.5\\manifest.json"
-            },
-            "FlipMods-ReservedFlashlightSlot-1.6.3": {
-                "path_.dll": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\FlipMods-ReservedFlashlightSlot-1.6.3\\ReservedFlashlightSlot.dll",
-                "path_bepinex": None,
-                "path_plugins": None,
-                "path_manifest": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\FlipMods-ReservedFlashlightSlot-1.6.3\\manifest.json"
-            },
-            "IntegrityChaos-Diversity-2.0.0": {
-                "path_.dll": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\IntegrityChaos-Diversity-2.0.0\\Diversity\\Diversity.dll",
-                "path_bepinex": None,
-                "path_plugins": None,
-                "path_manifest": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\IntegrityChaos-Diversity-2.0.0\\manifest.json"
-            },
-            "Rune580-LethalCompany_InputUtils-0.6.3": {
-                "path_.dll": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\Rune580-LethalCompany_InputUtils-0.6.3\\plugins\\LethalCompanyInputUtils\\LethalCompanyInputUtils.dll",
-                "path_bepinex": None,
-                "path_plugins": "C:Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\Rune580-LethalCompany_InputUtils-0.6.3\\plugins",
-                "path_manifest": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\Rune580-LethalCompany_InputUtils-0.6.3\\manifest.json"
-            },
-            "x753-Mimics-2.4.1": {
-                "path_.dll": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\x753-Mimics-2.4.1\\BepInEx\\plugins\\Mimics.dll",
-                "path_bepinex": "C:Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\x753-Mimics-2.4.1\\BepInEx",
-                "path_plugins": "C:Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\x753-Mimics-2.4.1\\BepInEx\\plugins",
-                "path_manifest": "C:\\Users\\caram\\AppData\\Roaming\\space\\spaces\\TOBIMODS\\tests\\mods_test\\x753-Mimics-2.4.1\\manifest.json"
-            }
-        }
-        for folder in folders:
-            full_path = os.path.join(path, folder)
-            files_rules.get_file_rules(full_path)
+    def test_get_latest_version(self):
+        latest_version = TobiMods.GetLatestVersionThunder()
+        version, download_url = latest_version.get_version("x753", "Mimics")
+        self.assertNotIsInstance(version, bool, "The version shoudnt be a Booltype")
+        self.assertIsNotNone(version, "The version must not be a NoneType")
 
-        self.assertDictEqual(expected_rules, files_rules.files_rules)
+class TestGetModsInfo(unittest.TestCase):
+    pass
+
+class TestSearchMods(unittest.TestCase):
+    def __init__(self, methodName: str = "runTest") -> None:
+        super().__init__(methodName)
+        self.local_version = TobiMods.GetLocalVersionManifest("tests\\mods_test", test_mode=True)
+        self.mod_info = TobiMods.GetModInfoYML()
+        container = self.mod_info.get_container()
+        self.latest_version = TobiMods.GetLatestVersionThunder(container)
+        self.search_mods = TobiMods.SearchMods(self.local_version, self.latest_version)
+
+    def test_is_outdated_mod(self):
+        self.assertTrue(self.search_mods.is_outdated_mod("Diversity"), "This could be a outdated")
+        self.assertFalse(self.search_mods.is_outdated_mod("BepInExPack"), "This couldnt be a outdated")
+
+    def test_is_missing_mod(self):
+        self.assertTrue(self.search_mods.is_missing_mod("Test"), "This mod must be missing")
+        self.assertFalse(self.search_mods.is_missing_mod("Mimics"), "This mod shouldnt be a missing")
+    
+    def test_is_extra_mod(self):
+        container = self.mod_info.get_container()
+        self.assertTrue(self.search_mods.is_extra_mod("Test", container), "This mod must be a extra")
+        self.assertFalse(self.search_mods.is_extra_mod("Mimics", container), "This mod shouldnt be a extra")
+    
+
 
 if __name__ == '__main__':
     unittest.main()
 
-    
+
+
