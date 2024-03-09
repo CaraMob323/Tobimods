@@ -1,3 +1,26 @@
-version: 0.0.{build}
-build:
-  verbosity: minimal
+# appveyor.yml - https://www.appveyor.com/docs/lang/python
+---
+image:
+  - Visual Studio 2023
+
+environment:
+  matrix:
+  # - TOXENV: py27  # end-of-life-branches
+  # - TOXENV: py37
+  - TOXENV: py38    # https://devguide.python.org/versions
+  - TOXENV: py39
+  - TOXENV: py310
+  - TOXENV: py311
+  - TOXENV: py312
+  - PY_PYTHON: 3.12  # Run a Tox job to run the ruff linter on Python 3.12
+    TOXENV: ruff
+
+build: false
+
+install:
+  # - py --list
+  # - py -m pip install --upgrade pip
+  - py -m pip install tox
+
+test_script:
+  - py -m tox
