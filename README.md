@@ -23,7 +23,7 @@ All help is welcome
 
 ## Build Status
 
-[![Appveyor build status](https://ci.appveyor.com/api/projects/status/github/bruderstein/PythonScript?branch=master&svg=true)](https://ci.appveyor.com/project/CaraMob323/tobimods) [![GitHub release](https://img.shields.io/github/release/CaraMob323/tobimods)]()
+[![GitHub release](https://img.shields.io/github/release/CaraMob323/tobimods)]()
 
 
 ## License
