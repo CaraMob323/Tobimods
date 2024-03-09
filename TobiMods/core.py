@@ -3,7 +3,6 @@ import requests
 import zipfile
 import shutil
 import asyncio
-import time
 import aiohttp
 
 from helpers import *
@@ -329,7 +328,7 @@ def main():
     # The other iteration is not used to download and delete for better presentation.
     total_mods = search_mods.outdated_mod + search_mods.missing_mod
     if total_mods != []:
-        print("\r\Installing mods...")
+        print("\r\nInstalling mods...")
         for mod_name in total_mods:
 
             author = container[mod_name]
@@ -347,7 +346,7 @@ def main():
             os.remove(extract_path+".zip")
 
     if search_mods.extra_mod != []:
-        print("\r\Unistalling mods...")
+        print("\r\nUnistalling mods...")
         for mod_name in search_mods.extra_mod:
             question = input(f"¿Deseas eliminar este mod: {mod_name} (y/n)?")
             if question == "n":

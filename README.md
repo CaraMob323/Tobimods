@@ -1,16 +1,30 @@
 # TobiMods
 
-TobiMods is a "Lethal company" mod updater and installer that aims to make all your friends have the same mods. 
+TobiMods is a "Lethal Company" mod updater and installer that aims to make all your friends have the same mods with just one click.
 
 ## Usage
 
-Just run the .exe, select the folder where the lethal executable is and let the magic happen.
+For now TobiMods only reads my GitHub yml but if you understand the code you can easily change it.
 
-## Contributing
+- Install [r2modman](https://github.com/ebkr/r2modmanPlus/releases/latest).
+- Install all the mods your friends want.
+- Go to profile folder and copy mods.yml to .exe folder (this doesn't work).
+- Run the .exe and select your Lethal Company folder.
+- Enjoy!
 
-Any help is welcome.
+## Contribution
 
--Sorry for the spagetti code, it's my first project.
+All help is welcome
+
+## Thanks to
+
+- [r2modman](https://github.com/ebkr/r2modmanPlus) 
+- [Thunderstore](https://thunderstore.io/api/docs/) 
+
+## Build Status
+
+[![Appveyor build status](https://ci.appveyor.com/api/projects/status/github/bruderstein/PythonScript?branch=master&svg=true)](https://ci.appveyor.com/project/CaraMob323/tobimods) [![GitHub release](https://img.shields.io/github/release/CaraMob323/tobimods)]()
+
 
 ## License
 
