@@ -8,7 +8,7 @@ For now TobiMods only reads my GitHub yml but if you understand the code you can
 
 - Install [r2modman](https://github.com/ebkr/r2modmanPlus/releases/latest).
 - Install all the mods your friends want.
-- Go to profile folder and copy mods.yml to .exe folder (this doesn't work).
+- Go to profile folder and copy mods.yml to .exe folder.
 - Run the .exe and select your Lethal Company folder.
 - Enjoy!
 
