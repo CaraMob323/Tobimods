@@ -1,6 +1,4 @@
 core.spec
-build
-dist
 versions/
 tests/mods_test/
 tests/LETHAL_FOLDER/

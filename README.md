@@ -19,11 +19,11 @@ All help is welcome
 ## Thanks to
 
 - [r2modman](https://github.com/ebkr/r2modmanPlus) 
-- [Thunderstore](https://thunderstore.io/api/docs/) 
+- [Thunderstore API](https://thunderstore.io/api/docs/) 
 
-## Build Status
+## Version
 
-[![Appveyor build status](https://ci.appveyor.com/api/projects/status/github/bruderstein/PythonScript?branch=master&svg=true)](https://ci.appveyor.com/project/CaraMob323/tobimods) [![GitHub release](https://img.shields.io/github/release/CaraMob323/tobimods)]()
+[![GitHub release](https://img.shields.io/github/release/CaraMob323/tobimods)]()
 
 
 ## License

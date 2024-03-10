@@ -63,7 +63,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 10
+    patch: 11
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\PotatoePet-AdvancedCompany\icon.png
 - manifestVersion: 1
@@ -1459,7 +1459,7 @@
     minor: 0
     patch: 3
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\FlipMods-TooManyEmotes\2.0.3\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-TooManyEmotes\icon.png
 - manifestVersion: 1
   name: Hexnet111-SuitSaver
   authorName: Hexnet111
@@ -1931,3 +1931,177 @@
     patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\netux-Open_Doors_in_Space\icon.png
+- manifestVersion: 1
+  name: Sigurd-CSync
+  authorName: Sigurd
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Sigurd/CSync/
+  displayName: CSync
+  description: Configuration file syncing library for BepInEx.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 3
+    minor: 1
+    patch: 1
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Sigurd-CSync\icon.png
+- manifestVersion: 1
+  name: zihang-SuperiorSelling
+  authorName: zihang
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/zihang/SuperiorSelling/
+  displayName: SuperiorSelling
+  description: Mod that removes the cap on maximum items being sold at once at the company
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Sigurd-CSync-3.1.1
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 3
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\zihang-SuperiorSelling\icon.png
+- manifestVersion: 1
+  name: somug-EnhancedLethalThings
+  authorName: somug
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/somug/EnhancedLethalThings/
+  displayName: EnhancedLethalThings
+  description: It enhance Lethalthings store item in Evaisa-LethalLib-0.14.2
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - Evaisa-LethalThings-0.9.4
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 1
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\somug-EnhancedLethalThings\icon.png
+- manifestVersion: 1
+  name: Lordfirespeed-OdinSerializer
+  authorName: Lordfirespeed
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Lordfirespeed/OdinSerializer/
+  displayName: OdinSerializer
+  description: Fast, robust, powerful and extendible .NET serializer built for Unity
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies: []
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2022
+    minor: 11
+    patch: 9
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Lordfirespeed-OdinSerializer\icon.png
+- manifestVersion: 1
+  name: IAmBatby-LethalLevelLoader
+  authorName: IAmBatby
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/IAmBatby/LethalLevelLoader/
+  displayName: LethalLevelLoader
+  description: A Custom API to support the manual and dynamic integration of
+    custom levels and dungeons in Lethal Company.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Evaisa-LethalLib-0.14.2
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 1
+    patch: 6
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\IAmBatby-LethalLevelLoader\icon.png
+- manifestVersion: 1
+  name: xilophor-LethalNetworkAPI
+  authorName: xilophor
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/xilophor/LethalNetworkAPI/
+  displayName: LethalNetworkAPI
+  description: A library/API to allow developers to easily add networking to their mods.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Lordfirespeed-OdinSerializer-2022.11.9
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 2
+    minor: 1
+    patch: 6
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\xilophor-LethalNetworkAPI\icon.png
+- manifestVersion: 1
+  name: Piggy-LC_Office
+  authorName: Piggy
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Piggy/LC_Office/
+  displayName: LC_Office
+  description: Adds new office-themed interior, and new enemies!
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - Evaisa-LethalLib-0.14.2
+    - xilophor-LethalNetworkAPI-2.1.6
+    - IAmBatby-LethalLevelLoader-1.1.6
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 1
+    patch: 12
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Piggy-LC_Office\icon.png
+- manifestVersion: 1
+  name: Piggy-MaskedAIRevamp
+  authorName: Piggy
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Piggy/MaskedAIRevamp/
+  displayName: MaskedAIRevamp
+  description: (unstable) Improves Masked's AI to be more complex.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - xilophor-LethalNetworkAPI-1.0.0
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 0
+    minor: 2
+    patch: 1
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\Piggy-MaskedAIRevamp\0.2.1\icon.png
