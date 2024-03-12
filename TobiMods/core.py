@@ -367,9 +367,9 @@ def main():
 
             print("-"+mod_name, "INSTALLED", f"({num + 1}/{len(total_mods)})")
 
-            # shutil.rmtree(extract_path)
-            # shutil.rmtree(refactorized_path)
-            # os.remove(extract_path+".zip")
+            shutil.rmtree(extract_path)
+            shutil.rmtree(refactorized_path)
+            os.remove(extract_path+".zip")
 
     if search_mods.extra_mod != []:
         print("\r\nUnistalling mods...")
