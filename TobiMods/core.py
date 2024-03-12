@@ -349,7 +349,8 @@ def main():
             continue
 
     # The other iteration is not used to download and delete for better presentation.
-    total_mods = ["BarchLib"]
+    total_mods = search_mods.outdated_mod + search_mods.missing_mod
+    
     if total_mods != []:
         print("\r\nInstalling mods...")
         for num, mod_name in enumerate(total_mods):
