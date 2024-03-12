@@ -42,31 +42,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Rune580-LethalCompany_InputUtils\icon.png
 - manifestVersion: 1
-  name: PotatoePet-AdvancedCompany
-  authorName: PotatoePet
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/PotatoePet/AdvancedCompany/
-  displayName: AdvancedCompany
-  description: The most advanced and by far most stable lobby mod with perfect
-    additions for your LethalCompany adventure. Including nearly perfectly
-    synched late joining into lobbies. Includes cosmetics compability. Fully
-    configurable in-game with preset support.
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-    - Rune580-LethalCompany_InputUtils-0.5.5
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 1
-    patch: 11
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\PotatoePet-AdvancedCompany\icon.png
-- manifestVersion: 1
   name: AlexCodesGames-AdditionalContentFramework
   authorName: AlexCodesGames
   websiteUrl: https://thunderstore.io/c/lethal-company/p/AlexCodesGames/AdditionalContentFramework/
@@ -443,31 +418,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\no00ob-LCSoundTool\icon.png
 - manifestVersion: 1
-  name: LethalResonance-LETHALRESONANCE
-  authorName: LethalResonance
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/LethalResonance/LETHALRESONANCE/
-  displayName: LETHALRESONANCE
-  description: NEW API, STREAM FRIENDLY. Immerse in 470+ enhanced audio tweaks and
-    custom sounds for a scarier, deeper experience. Feel sound roll off objects,
-    blending intense bass and subtle reverb for a captivating, immersive
-    experience.
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - Hardy-LCMaxSoundsFix-1.1.0
-    - loaforc-loaforcsSoundAPI-0.1.3
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 4
-    minor: 2
-    patch: 3
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LethalResonance-LETHALRESONANCE\icon.png
-- manifestVersion: 1
   name: x753-More_Suits
   authorName: x753
   websiteUrl: https://thunderstore.io/c/lethal-company/p/x753/More_Suits/
@@ -489,28 +439,6 @@
     patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\x753-More_Suits\icon.png
-- manifestVersion: 1
-  name: pap-More_Suitspap
-  authorName: pap
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/pap/More_Suitspap/
-  displayName: More_Suitspap
-  description: Adds more suits for paps
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - x753-More_Suits-1.4.1
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 0
-    patch: 3
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\pap-More_Suitspap\icon.png
 - manifestVersion: 1
   name: Verity-TooManySuits
   authorName: Verity
@@ -2080,7 +2008,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 12
+    patch: 14
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Piggy-LC_Office\icon.png
 - manifestVersion: 1
@@ -2104,4 +2032,52 @@
     minor: 2
     patch: 1
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\Piggy-MaskedAIRevamp\0.2.1\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Piggy-MaskedAIRevamp\icon.png
+- manifestVersion: 1
+  name: PotatoePet-AdvancedCompany
+  authorName: PotatoePet
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/PotatoePet/AdvancedCompany/
+  displayName: AdvancedCompany
+  description: The most advanced and by far most stable lobby mod with perfect
+    additions for your LethalCompany adventure. Including nearly perfectly
+    synched late joining into lobbies. Includes cosmetics compability. Fully
+    configurable in-game with preset support.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Rune580-LethalCompany_InputUtils-0.5.5
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 1
+    patch: 16
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\PotatoePet-AdvancedCompany\icon.png
+- manifestVersion: 1
+  name: LuckyJarXPlus-LethalSoundsNew
+  authorName: LuckyJarXPlus
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/LuckyJarXPlus/LethalSoundsNew/
+  displayName: LethalSoundsNew
+  description: This Mod Trys to Add Scarier Sounds To Replace The Old Sounds From The Game.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Clementinise-CustomSounds-1.2.3
+    - no00ob-LCSoundTool-1.5.1
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 0
+    patch: 0
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\LuckyJarXPlus-LethalSoundsNew\1.0.0\icon.png

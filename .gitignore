@@ -1,4 +1,7 @@
 core.spec
+dist
+build
 versions/
 tests/mods_test/
 tests/LETHAL_FOLDER/
+tests/compare_folders.py

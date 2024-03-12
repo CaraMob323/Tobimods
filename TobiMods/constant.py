@@ -6,6 +6,7 @@ class LethalConstant:
     PLUGINS_NAME = "plugins"
     CONFIG_NAME = "config"
     PATCHERS_NAME = "patchers"
+    CORE_NAME = "core"
 
     YML_GITHUB_URL = "https://raw.githubusercontent.com/CaraMob323/Tobimods/main/mods.yml"
     YML_FILE_NAME = "mods.yml"

@@ -1,3 +1,7 @@
+## 0.0.6
+- Fixed a bug that caused a bad mod to be installed (BarchLib).
+- A counter of installed and analyzed mods now appears.
+
 ## 0.0.5
 - Now the script search the mods.yml in the folder
 - Improved constant on the code

@@ -5,7 +5,6 @@ import shutil
 import asyncio
 import aiohttp
 
-from loader import Loader
 from helpers import *
 from constant import LethalConstant 
 from aiohttp.client import ClientSession
@@ -66,6 +65,7 @@ class GetLatestVersionThunder(GetLatestVersion):
     def __init__(self, container: dict) -> None:
         self.latest_version = {}
         self.container = container
+        self.count = 0
         asyncio.run(self.search_all_versions())
 
     def get_version(self, mod_name: str) -> str:
@@ -80,10 +80,13 @@ class GetLatestVersionThunder(GetLatestVersion):
         async with session.get(url) as response:
             if response.status == 200:
                 result = await response.json()
-                self.latest_version[result["name"]] = {
+                self.latest_version[result[CONS.THUNDER_MOD_NAME]] = {
                     "version": result[CONS.THUNDER_LATEST][CONS.THUNDER_MOD_VERSION],
                     "download_url": result[CONS.THUNDER_LATEST][CONS.THUNDER_MOD_URL]
                 }
+                self.count += 1
+                print(f"\rAnalyzing mods ({self.count}/{len(self.container)})", flush=True, end="")
+                
             elif response.status == 429:
                 if max_retries > 0:
                     await asyncio.sleep(2) 
@@ -288,7 +291,7 @@ class FilesManagerLethal:
 
         for i in listdir:
             if not os.path.isfile(os.path.join(mod_path, i)) and count_dirs == 1:
-                if CONS.PATCHERS_NAME in listdir:
+                if CONS.PATCHERS_NAME in listdir or CONS.CORE_NAME in listdir:
                     self.move_dirs(fullname_mod, mod_path, fullname_mod,  CONS.BEPINEX_NAME)
                     return
                 completed_path = os.path.join(mod_path, *listdir)
@@ -302,16 +305,25 @@ class FilesManagerLethal:
         if not os.path.exists(into_mod):
             self.move_files(fullname_mod, mod_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
 
+    
+def start() -> str:
+    while True:
+        path = diropenbox("Select the Lethal Company folder")
+        listdir = os.listdir(path)
+        for file in listdir:
+            if file.endswith(".exe"):
+                os.system("cls")
+                return path
+        print("Please select the folder where the .exe is located")
 
 def main():
-    game_path = diropenbox("Select the Lethal Company folder")
+    game_path = start()
     local_version = GetLocalVersionManifest(game_path)
     get_mod_info = GetModInfoYML()
     container = get_mod_info.get_container()
-
-    with Loader(desc="Loading"):
-        latest_version = GetLatestVersionThunder(container)
-
+    latest_version = GetLatestVersionThunder(container)
+    os.system("cls")
+    print("Done!")
     get_mod_info = GetModInfoYML()
     search_mods = SearchMods(local_version, latest_version)
     download_manager = DownloadManager(game_path)
@@ -325,19 +337,19 @@ def main():
 
     for name in total_mods:
         if search_mods.is_extra_mod(name, container):
-            print(name, "EXTRA")
+            print("-"+name, "EXTRA")
             continue
 
         if search_mods.is_missing_mod(name):
-            print(name, "MISSING")
+            print("-"+name, "MISSING")
             continue
 
         if search_mods.is_outdated_mod(name):
-            print(name, "OUTDATED")
+            print("-"+name, "OUTDATED")
             continue
 
     # The other iteration is not used to download and delete for better presentation.
-    total_mods = search_mods.outdated_mod + search_mods.missing_mod
+    total_mods = ["BarchLib"]
     if total_mods != []:
         print("\r\nInstalling mods...")
         for num, mod_name in enumerate(total_mods):
@@ -352,12 +364,11 @@ def main():
             download_manager.extract_mod(mod_name, extract_path)
             move_files.process_folder(extract_path, fullname)
 
-            print(mod_name, "INSTALLED")
-            print(len(total_mods) - num - 1, "MISSINGS")
+            print("-"+mod_name, "INSTALLED", f"({num + 1}/{len(total_mods)})")
 
-            shutil.rmtree(extract_path)
-            shutil.rmtree(refactorized_path)
-            os.remove(extract_path+".zip")
+            # shutil.rmtree(extract_path)
+            # shutil.rmtree(refactorized_path)
+            # os.remove(extract_path+".zip")
 
     if search_mods.extra_mod != []:
         print("\r\nUnistalling mods...")
@@ -368,7 +379,6 @@ def main():
             else:
                 download_manager.delete_mod(mod_name)
 
-                
 if __name__ == "__main__":
     main()
     input("\r\nPRESIONE ENTER PARA CONTINUAR")
