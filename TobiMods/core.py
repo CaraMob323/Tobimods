@@ -129,10 +129,8 @@ class GetModInfoYML(GetModInfo):
         listdir = os.listdir(os.curdir)
         lower_listdir = [file.lower() for file in listdir]
         if CONS.YML_FILE_NAME in lower_listdir:
-            for file in lower_listdir:
-                if file == CONS.YML_FILE_NAME:
-                    with open(file, "r") as file:
-                        return yaml.safe_load(file)
+            with open(CONS.YML_FILE_NAME, "r") as file:
+                return yaml.safe_load(file)
         return False            
     
 class SearchMods:
@@ -174,7 +172,9 @@ class DownloadManager:
         while True:
             request = requests.get(download_url, allow_redirects=True)
             if request.status_code == 200:
-                path = os.path.join(self.game_path, mod_name)
+                path = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, mod_name)
+                if not os.path.exists(path):
+                    os.makedirs(path)
                 with open(path+".zip", "wb+") as file:
                     for chunk in request.iter_content(chunk_size=128):
                         if chunk:
@@ -182,7 +182,7 @@ class DownloadManager:
                 break
 
     def extract_mod(self, mod_name: str, extract_to: str) -> str:
-        with zipfile.ZipFile(os.path.join(self.game_path, mod_name+".zip"), "r") as extract:
+        with zipfile.ZipFile(os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, mod_name+".zip"), "r") as extract:
             extract.extractall(extract_to)
         
     def delete_mod(self, mod_name: str) -> None:
@@ -200,8 +200,8 @@ class FilesManagerLethal:
         self.game_path = game_path
 
     def move_dirs(self, fullname_mod: str, mod_path: str, *destination_path: str) -> None:
-        bepinex_folder = os.path.join(self.game_path, fullname_mod)
-        destination_path = os.path.join(self.game_path, *destination_path)
+        bepinex_folder = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, fullname_mod)
+        destination_path = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, *destination_path)
 
         if not os.path.exists(destination_path):
             os.makedirs(bepinex_folder, exist_ok=True)
@@ -209,15 +209,14 @@ class FilesManagerLethal:
         listdir = os.listdir(mod_path)
 
         for dirname in listdir:
-            if dirname.lower() != CONS.PLUGINS_NAME:
-                file_path = os.path.join(mod_path, dirname)
-                shutil.move(file_path, destination_path)
+            file_path = os.path.join(mod_path, dirname)
+            shutil.move(file_path, destination_path)
         
         shutil.copytree(bepinex_folder, self.game_path, dirs_exist_ok=True)
         
     def move_files(self, fullname_mod: str, mod_path: str, *destination_path: str):
-        bepinex_folder = os.path.join(self.game_path, fullname_mod)
-        destination_path = os.path.join(self.game_path, *destination_path)
+        bepinex_folder = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, fullname_mod)
+        destination_path = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, *destination_path)
 
         if not os.path.exists(destination_path):
             os.makedirs(bepinex_folder, exist_ok=True)
@@ -231,13 +230,15 @@ class FilesManagerLethal:
         
         shutil.copytree(bepinex_folder, self.game_path, dirs_exist_ok=True)
 
-
     def process_folder(self, mod_path: str, fullname_mod: str):
         listdir = os.listdir(mod_path)
         lower_listdir = [dirfile.lower() for dirfile in listdir]
 
         if CONS.MANIFEST_FILE in lower_listdir:
             self.is_manifest(mod_path, fullname_mod)
+
+        listdir = os.listdir(mod_path)
+        lower_listdir = [dirfile.lower() for dirfile in listdir]
 
         for file in lower_listdir:
             if file.endswith(".dll"):
@@ -249,23 +250,25 @@ class FilesManagerLethal:
         if listdir != []:
             if CONS.BEPINEX_NAME.lower() in lower_listdir:
                 self.is_bepinex(mod_path, fullname_mod)
-            elif CONS.PLUGINS_NAME in lower_listdir:
+                return
+            if CONS.PLUGINS_NAME.lower() in lower_listdir:
                 self.is_plugins(mod_path, fullname_mod)
-            else:
+            if CONS.PATCHERS_NAME.lower() in lower_listdir:
+                self.is_patchers(mod_path, fullname_mod)
+            if CONS.CORE_NAME.lower() in lower_listdir:
+                self.is_core(mod_path, fullname_mod)
+            if CONS.CONFIG_NAME.lower() in lower_listdir:
+                self.is_config(mod_path, fullname_mod)
+    
+            names_to_check = [CONS.CORE_NAME.lower(), CONS.PATCHERS_NAME.lower(), CONS.PLUGINS_NAME.lower(), CONS.BEPINEX_NAME.lower(), CONS.CONFIG_NAME.lower()]
+            if any(not name in names_to_check for name in lower_listdir):
                 self.is_other(mod_path, fullname_mod)
     
     def is_bepinex(self, mod_path: str, fullname_mod):
         completed_path = os.path.join(mod_path, CONS.BEPINEX_NAME)
-        listdir = os.listdir(completed_path)
-        lower_listdir = [dirfile.lower() for dirfile in listdir]
-
-        if not CONS.PLUGINS_NAME in lower_listdir:
+        if CONS.BEPINEX_NAME.lower() in fullname_mod.lower():
             self.move_dirs(fullname_mod, completed_path, fullname_mod, CONS.BEPINEX_NAME)
-        elif len(lower_listdir) > 1 and CONS.PLUGINS_NAME in lower_listdir:
-            self.move_dirs(fullname_mod, completed_path, fullname_mod, CONS.BEPINEX_NAME)
-            self.process_folder(completed_path, fullname_mod)
-        else:
-            self.process_folder(completed_path, fullname_mod)
+        self.process_folder(completed_path, fullname_mod)
     
     def is_plugins(self, mod_path: str, fullname_mod):
         completed_path = os.path.join(mod_path, CONS.PLUGINS_NAME)
@@ -275,37 +278,46 @@ class FilesManagerLethal:
         else:
             self.move_dirs(fullname_mod, completed_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
 
+    def is_core(self, mod_path: str, fullname_mod):
+        completed_path = os.path.join(mod_path, CONS.CORE_NAME)
+        self.move_dirs(fullname_mod, completed_path, fullname_mod, CONS.BEPINEX_NAME, CONS.CORE_NAME, fullname_mod)
+        shutil.rmtree(completed_path)
+
+    def is_patchers(self, mod_path: str, fullname_mod):
+        completed_path = os.path.join(mod_path, CONS.PATCHERS_NAME)
+        self.move_dirs(fullname_mod, completed_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PATCHERS_NAME, fullname_mod)
+        shutil.rmtree(completed_path)
+
+    def is_config(self, mod_path: str, fullname_mod):
+        completed_path = os.path.join(mod_path, CONS.CONFIG_NAME)
+        self.move_dirs(fullname_mod, completed_path, fullname_mod, CONS.BEPINEX_NAME, CONS.CONFIG_NAME)
+        shutil.rmtree(completed_path)
+
     def is_dll(self, mod_path: str, fullname_mod):
         listdir = os.listdir(mod_path)
         lower_listdir = [dirfile.lower() for dirfile in listdir]
         if CONS.BEPINEX_NAME.lower() in lower_listdir:
-            self.move_files(fullname_mod, mod_path)
+            self.move_files(fullname_mod, mod_path, fullname_mod)
         else:
             self.move_dirs(fullname_mod, mod_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
 
+    def is_manifest(self, mod_path: str, fullname_mod: str):
+        into_mod = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
+        if not os.path.exists(into_mod):
+            self.move_files(fullname_mod, mod_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
+
     def is_other(self, mod_path: str, fullname_mod):
         listdir = os.listdir(mod_path)
-        if CONS.CONFIG_NAME in listdir:
-            listdir.remove(CONS.CONFIG_NAME)
         count_dirs = len(listdir)
 
         for i in listdir:
             if not os.path.isfile(os.path.join(mod_path, i)) and count_dirs == 1:
-                if CONS.PATCHERS_NAME in listdir or CONS.CORE_NAME in listdir:
-                    self.move_dirs(fullname_mod, mod_path, fullname_mod,  CONS.BEPINEX_NAME)
-                    return
                 completed_path = os.path.join(mod_path, *listdir)
                 self.process_folder(completed_path, fullname_mod)
                 return
 
         self.move_dirs(fullname_mod, mod_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
 
-    def is_manifest(self, mod_path: str, fullname_mod: str):
-        into_mod = os.path.join(self.game_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
-        if not os.path.exists(into_mod):
-            self.move_files(fullname_mod, mod_path, fullname_mod, CONS.BEPINEX_NAME, CONS.PLUGINS_NAME, fullname_mod)
-
-    
 def start() -> str:
     while True:
         path = diropenbox("Select the Lethal Company folder")
@@ -358,8 +370,8 @@ def main():
             author = container[mod_name]
             fullname = author +"-"+ mod_name
 
-            extract_path = os.path.join(game_path, mod_name)
-            refactorized_path = os.path.join(game_path, fullname)
+            extract_path = os.path.join(game_path, CONS.TEMPORAL_FOLDER, mod_name)
+            refactorized_path = os.path.join(game_path, CONS.TEMPORAL_FOLDER, fullname)
 
             download_manager.download_mod(mod_name, latest_version.get_download_url(mod_name))
             download_manager.extract_mod(mod_name, extract_path)
@@ -370,6 +382,7 @@ def main():
             shutil.rmtree(extract_path)
             shutil.rmtree(refactorized_path)
             os.remove(extract_path+".zip")
+        shutil.rmtree(os.path.join(game_path, CONS.TEMPORAL_FOLDER))
 
     if search_mods.extra_mod != []:
         print("\r\nUnistalling mods...")
