@@ -37,8 +37,8 @@
   optionalDependencies: []
   versionNumber:
     major: 0
-    minor: 6
-    patch: 3
+    minor: 7
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Rune580-LethalCompany_InputUtils\icon.png
 - manifestVersion: 1
@@ -301,7 +301,7 @@
   versionNumber:
     major: 0
     minor: 14
-    patch: 2
+    patch: 3
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Evaisa-LethalLib\icon.png
 - manifestVersion: 1
@@ -1385,7 +1385,7 @@
   versionNumber:
     major: 2
     minor: 0
-    patch: 3
+    patch: 5
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-TooManyEmotes\icon.png
 - manifestVersion: 1
@@ -1639,7 +1639,7 @@
   versionNumber:
     major: 0
     minor: 10
-    patch: 2
+    patch: 7
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DrinkableWater-Brutal_Company_Minus\icon.png
 - manifestVersion: 1
@@ -1920,7 +1920,7 @@
   versionNumber:
     major: 1
     minor: 0
-    patch: 1
+    patch: 2
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\somug-EnhancedLethalThings\icon.png
 - manifestVersion: 1
@@ -2008,7 +2008,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 14
+    patch: 17
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Piggy-LC_Office\icon.png
 - manifestVersion: 1
@@ -2055,7 +2055,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 16
+    patch: 17
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\PotatoePet-AdvancedCompany\icon.png
 - manifestVersion: 1
@@ -2080,4 +2080,144 @@
     minor: 0
     patch: 0
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\LuckyJarXPlus-LethalSoundsNew\1.0.0\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LuckyJarXPlus-LethalSoundsNew\icon.png
+- manifestVersion: 1
+  name: Woecust-Immersive_Visor
+  authorName: Woecust
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Woecust/Immersive_Visor/
+  displayName: Immersive_Visor
+  description: Make the visor reactive to the environment and heath. Currently in BETA
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 0
+    minor: 3
+    patch: 3
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Woecust-Immersive_Visor\icon.png
+- manifestVersion: 1
+  name: Hypick-BetterShotgun
+  authorName: Hypick
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Hypick/BetterShotgun/
+  displayName: BetterShotgun
+  description: "[v49] Improves the vanilla shotgun and its ammo, adding features
+    such as infinite ammo, viewing the number of loaded ammo, selling in the
+    store, spawning on moons and in gifts (Fully configurable)"
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Sigurd-CSync-3.1.1
+    - Rune580-LethalCompany_InputUtils-0.7.1
+    - Evaisa-LethalLib-0.14.3
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 4
+    patch: 6
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Hypick-BetterShotgun\icon.png
+- manifestVersion: 1
+  name: KawaiiBone-Remnants
+  authorName: KawaiiBone
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/KawaiiBone/Remnants/
+  displayName: Remnants
+  description: Adds store items as scrap, to be found on moons as scrap in Lethal
+    Company. You can now also find the bodies of previous crews accompanying
+    their former gear.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Evaisa-HookGenPatcher-0.0.5
+    - Evaisa-LethalLib-0.14.2
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 2
+    patch: 4
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\KawaiiBone-Remnants\icon.png
+- manifestVersion: 1
+  name: LethalSex-LethalSex_Core
+  authorName: LethalSex
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/LethalSex/LethalSex_Core/
+  displayName: LethalSex_Core
+  description: Core module for my other mods uwu
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 2
+    patch: 5
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LethalSex-LethalSex_Core\icon.png
+- manifestVersion: 1
+  name: LethalSex-LethalSanity
+  authorName: LethalSex
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/LethalSex/LethalSanity/
+  displayName: LethalSanity
+  description: Extends the insanity system uwu
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - LethalSex-LethalSex_Core-1.2.5
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 3
+    patch: 1
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LethalSex-LethalSanity\icon.png
+- manifestVersion: 1
+  name: Dantor-Dantors_Mental_Hospital
+  authorName: Dantor
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Dantor/Dantors_Mental_Hospital/
+  displayName: Dantors_Mental_Hospital
+  description: Adds a new custom interior themed as a psyquiatric institution to
+    explore and get lost
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Evaisa-HookGenPatcher-0.0.5
+    - Evaisa-LethalLib-0.13.2
+    - IAmBatby-LethalLevelLoader-1.1.6
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 2
+    patch: 2
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\Dantor-Dantors_Mental_Hospital\1.2.2\icon.png
