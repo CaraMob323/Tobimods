@@ -2082,27 +2082,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LuckyJarXPlus-LethalSoundsNew\icon.png
 - manifestVersion: 1
-  name: Woecust-Immersive_Visor
-  authorName: Woecust
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/Woecust/Immersive_Visor/
-  displayName: Immersive_Visor
-  description: Make the visor reactive to the environment and heath. Currently in BETA
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 0
-    minor: 3
-    patch: 3
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Woecust-Immersive_Visor\icon.png
-- manifestVersion: 1
   name: Hypick-BetterShotgun
   authorName: Hypick
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Hypick/BetterShotgun/
@@ -2154,49 +2133,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\KawaiiBone-Remnants\icon.png
 - manifestVersion: 1
-  name: LethalSex-LethalSex_Core
-  authorName: LethalSex
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/LethalSex/LethalSex_Core/
-  displayName: LethalSex_Core
-  description: Core module for my other mods uwu
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 2
-    patch: 5
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LethalSex-LethalSex_Core\icon.png
-- manifestVersion: 1
-  name: LethalSex-LethalSanity
-  authorName: LethalSex
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/LethalSex/LethalSanity/
-  displayName: LethalSanity
-  description: Extends the insanity system uwu
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-    - LethalSex-LethalSex_Core-1.2.5
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 3
-    patch: 1
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LethalSex-LethalSanity\icon.png
-- manifestVersion: 1
   name: Dantor-Dantors_Mental_Hospital
   authorName: Dantor
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Dantor/Dantors_Mental_Hospital/
@@ -2220,4 +2156,4 @@
     minor: 2
     patch: 2
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\Dantor-Dantors_Mental_Hospital\1.2.2\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Dantor-Dantors_Mental_Hospital\icon.png
