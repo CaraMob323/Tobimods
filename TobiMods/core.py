@@ -5,11 +5,13 @@ import shutil
 import asyncio
 import aiohttp
 
+from termcolor import cprint
 from helpers import *
 from constant import LethalConstant 
 from aiohttp.client import ClientSession
 from easygui import diropenbox
 from abc import ABC, abstractmethod
+from typing import List, Tuple, Dict, Any
 
 CONS = LethalConstant()
 
@@ -85,14 +87,14 @@ class GetLatestVersionThunder(GetLatestVersion):
                     "download_url": result[CONS.THUNDER_LATEST][CONS.THUNDER_MOD_URL]
                 }
                 self.count += 1
-                print(f"\rAnalyzing mods ({self.count}/{len(self.container)})", flush=True, end="")
+                cprint(f"\rAnalyzing mods ({self.count}/{len(self.container)})", color="light_blue", flush=True, end="")
                 
             elif response.status == 429:
                 if max_retries > 0:
                     await asyncio.sleep(2) 
                     await self.download_link(url, session, max_retries - 1)
                 else:
-                    print("FATAL ERROR")
+                    cprint("FATAL ERROR", "red")
 
     async def search_all_versions(self, limit = 5):
         my_conn = aiohttp.TCPConnector(limit=limit)
@@ -102,7 +104,7 @@ class GetLatestVersionThunder(GetLatestVersion):
                 url = f"https://thunderstore.io/api/experimental/package/{author}/{name}/"
                 task = asyncio.ensure_future(self.download_link(url=url,session=session))
                 tasks.append(task)
-            await asyncio.gather(*tasks,return_exceptions=True) # the await must be nest inside of the session
+            await asyncio.gather(*tasks,return_exceptions=True)
 
 class GetModInfoYML(GetModInfo):
     def __init__(self) -> None:
@@ -129,7 +131,7 @@ class GetModInfoYML(GetModInfo):
         listdir = os.listdir(os.curdir)
         lower_listdir = [file.lower() for file in listdir]
         if CONS.YML_FILE_NAME in lower_listdir:
-            with open(CONS.YML_FILE_NAME, "r") as file:
+            with open(CONS.YML_FILE_NAME, "r", encoding="utf-8") as file:
                 return yaml.safe_load(file)
         return False            
     
@@ -335,7 +337,7 @@ def main():
     container = get_mod_info.get_container()
     latest_version = GetLatestVersionThunder(container)
     os.system("cls")
-    print("Done!")
+    cprint("Done!", "green")
     get_mod_info = GetModInfoYML()
     search_mods = SearchMods(local_version, latest_version)
     download_manager = DownloadManager(game_path)
@@ -343,21 +345,21 @@ def main():
 
     # TODO use this iteration to then put imgui.
     
-    print("\r\nVerifying mods...")
+    cprint("\r\nVerifying mods...", "grey")
 
     total_mods = local_version.local_version | container
 
     for name in total_mods:
         if search_mods.is_extra_mod(name, container):
-            print("-"+name, "EXTRA")
+            print("- "+name, "EXTRA")
             continue
 
         if search_mods.is_missing_mod(name):
-            print("-"+name, "MISSING")
+            print("- "+name, "MISSING")
             continue
 
         if search_mods.is_outdated_mod(name):
-            print("-"+name, "OUTDATED")
+            print("- "+name, "OUTDATED")
             continue
 
     # The other iteration is not used to download and delete for better presentation.
@@ -377,7 +379,8 @@ def main():
             download_manager.extract_mod(mod_name, extract_path)
             move_files.process_folder(extract_path, fullname)
 
-            print("-"+mod_name, "INSTALLED", f"({num + 1}/{len(total_mods)})")
+            print("-"+mod_name, "INSTALLED", f"({num + 1}/{len(total_mods)})", end="")
+            cprint(f"-{latest_version.get_version(mod_name)}", color="light_grey")
 
             shutil.rmtree(extract_path)
             shutil.rmtree(refactorized_path)

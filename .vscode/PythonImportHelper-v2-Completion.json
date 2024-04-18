@@ -1,0 +1,430 @@
+[
+    {
+        "label": "filecmp",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "filecmp",
+        "description": "filecmp",
+        "detail": "filecmp",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "easygui",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "easygui",
+        "description": "easygui",
+        "detail": "easygui",
+        "documentation": {}
+    },
+    {
+        "label": "diropenbox",
+        "importPath": "easygui",
+        "description": "easygui",
+        "isExtraImport": true,
+        "detail": "easygui",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "TobiMods",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "TobiMods",
+        "description": "TobiMods",
+        "detail": "TobiMods",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "TobiMods",
+        "importPath": "context",
+        "description": "context",
+        "isExtraImport": true,
+        "detail": "context",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "aiohttp",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "aiohttp",
+        "description": "aiohttp",
+        "detail": "aiohttp",
+        "documentation": {}
+    },
+    {
+        "label": "cprint",
+        "importPath": "termcolor",
+        "description": "termcolor",
+        "isExtraImport": true,
+        "detail": "termcolor",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "helpers",
+        "description": "helpers",
+        "isExtraImport": true,
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "LethalConstant",
+        "importPath": "constant",
+        "description": "constant",
+        "isExtraImport": true,
+        "detail": "constant",
+        "documentation": {}
+    },
+    {
+        "label": "ClientSession",
+        "importPath": "aiohttp.client",
+        "description": "aiohttp.client",
+        "isExtraImport": true,
+        "detail": "aiohttp.client",
+        "documentation": {}
+    },
+    {
+        "label": "ABC",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "imprimir_diferencias",
+        "kind": 2,
+        "importPath": "tests.compare_folders",
+        "description": "tests.compare_folders",
+        "peekOfCode": "def imprimir_diferencias(dcmp):\n  for file in dcmp.diff_files:\n    path_file_1 = os.path.join(dcmp.left, file)\n    path_file_2 = os.path.join(dcmp.right, file)\n    print(f\"Diferencia de file: {path_file_1} vs {path_file_2}\")\n  for file in dcmp.same_files:\n    if filecmp.cmp(os.path.join(dcmp.left, file), os.path.join(dcmp.right, file)):\n      continue\n    print(f\"Diferencia de tamaño: {file}\")\n  for directorio in dcmp.left_only:",
+        "detail": "tests.compare_folders",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "tests.compare_folders",
+        "description": "tests.compare_folders",
+        "peekOfCode": "def main():\n  # folder_1 = \"C:\\\\Users\\\\caram\\\\Desktop\\\\Lethal.Company.v49-0xdeadc0de\\\\BepInEx\\\\plugins\"\n  folder_1 = easygui.diropenbox(\"Tu lethal company y carpeta + subdirecitorios que quieras comparar\")\n  # folder_2 = \"C:\\\\Users\\\\caram\\\\AppData\\\\Roaming\\\\r2modmanPlus-local\\\\LethalCompany\\\\profiles\\\\Online\\\\BepInEx\\\\plugins\"\n  folder_2 = easygui.diropenbox(\"r2modman y carpeta + subdirecitorios que quieras comparar\")\n  dcmp = filecmp.dircmp(folder_1, folder_2)\n  imprimir_diferencias(dcmp)\nif __name__ == \"__main__\":\n  main()",
+        "detail": "tests.compare_folders",
+        "documentation": {}
+    },
+    {
+        "label": "color_magenta",
+        "kind": 5,
+        "importPath": "tests.test_advanced",
+        "description": "tests.test_advanced",
+        "peekOfCode": "color_magenta = \"\\x1b[37m\"\ncolor_white = \"\\x1b[97m\"\nprint(color_magenta, \"HOLA\")\nprint(color_white, \"gola\")",
+        "detail": "tests.test_advanced",
+        "documentation": {}
+    },
+    {
+        "label": "color_white",
+        "kind": 5,
+        "importPath": "tests.test_advanced",
+        "description": "tests.test_advanced",
+        "peekOfCode": "color_white = \"\\x1b[97m\"\nprint(color_magenta, \"HOLA\")\nprint(color_white, \"gola\")",
+        "detail": "tests.test_advanced",
+        "documentation": {}
+    },
+    {
+        "label": "TestGetVersion",
+        "kind": 6,
+        "importPath": "tests.test_basic",
+        "description": "tests.test_basic",
+        "peekOfCode": "class TestGetVersion(unittest.TestCase):\n    def test_get_local_version(self):\n        local_version = TobiMods.GetLocalVersionManifest(\"tests\\\\mods_test\", test_mode=True)\n        version = local_version.get_version(\"BepInExPack\")\n        self.assertNotIsInstance(version, bool, \"The version shoudnt be a BoolType\") \n        self.assertEqual(version, \"5.4.2100\", f\"The local version is not correct, {version}\")\n    def test_get_latest_version(self):\n        latest_version = TobiMods.GetLatestVersionThunder()\n        version, download_url = latest_version.get_version(\"x753\", \"Mimics\")\n        self.assertNotIsInstance(version, bool, \"The version shoudnt be a Booltype\")",
+        "detail": "tests.test_basic",
+        "documentation": {}
+    },
+    {
+        "label": "TestGetModsInfo",
+        "kind": 6,
+        "importPath": "tests.test_basic",
+        "description": "tests.test_basic",
+        "peekOfCode": "class TestGetModsInfo(unittest.TestCase):\n    pass\nclass TestSearchMods(unittest.TestCase):\n    def __init__(self, methodName: str = \"runTest\") -> None:\n        super().__init__(methodName)\n        self.local_version = TobiMods.GetLocalVersionManifest(\"tests\\\\mods_test\", test_mode=True)\n        self.mod_info = TobiMods.GetModInfoYML()\n        container = self.mod_info.get_container()\n        self.latest_version = TobiMods.GetLatestVersionThunder(container)\n        self.search_mods = TobiMods.SearchMods(self.local_version, self.latest_version)",
+        "detail": "tests.test_basic",
+        "documentation": {}
+    },
+    {
+        "label": "TestSearchMods",
+        "kind": 6,
+        "importPath": "tests.test_basic",
+        "description": "tests.test_basic",
+        "peekOfCode": "class TestSearchMods(unittest.TestCase):\n    def __init__(self, methodName: str = \"runTest\") -> None:\n        super().__init__(methodName)\n        self.local_version = TobiMods.GetLocalVersionManifest(\"tests\\\\mods_test\", test_mode=True)\n        self.mod_info = TobiMods.GetModInfoYML()\n        container = self.mod_info.get_container()\n        self.latest_version = TobiMods.GetLatestVersionThunder(container)\n        self.search_mods = TobiMods.SearchMods(self.local_version, self.latest_version)\n    def test_is_outdated_mod(self):\n        self.assertTrue(self.search_mods.is_outdated_mod(\"Diversity\"), \"This could be a outdated\")",
+        "detail": "tests.test_basic",
+        "documentation": {}
+    },
+    {
+        "label": "LethalConstant",
+        "kind": 6,
+        "importPath": "TobiMods.constant",
+        "description": "TobiMods.constant",
+        "peekOfCode": "class LethalConstant:\n    BEPINEX_NAME = \"BepInEx\"\n    PLUGINS_NAME = \"plugins\"\n    CONFIG_NAME = \"config\"\n    PATCHERS_NAME = \"patchers\"\n    CORE_NAME = \"core\"\n    TEMPORAL_FOLDER = \"temp\"\n    YML_GITHUB_URL = \"https://raw.githubusercontent.com/CaraMob323/Tobimods/main/mods.yml\"\n    YML_FILE_NAME = \"mods.yml\"\n    YML_MOD_NAME = \"displayName\"",
+        "detail": "TobiMods.constant",
+        "documentation": {}
+    },
+    {
+        "label": "GetLocalVersion",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class GetLocalVersion(ABC):\n    @abstractmethod\n    def __init__(self) -> None:\n        pass\n    @abstractmethod\n    def get_version(self, mod_name: str) -> str:\n        pass\nclass GetLatestVersion(ABC):\n    @abstractmethod\n    def __init__(self) -> None:",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "GetLatestVersion",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class GetLatestVersion(ABC):\n    @abstractmethod\n    def __init__(self) -> None:\n        pass\n    @abstractmethod\n    def get_version(self, mod_name: str) -> str:\n        pass\nclass GetModInfo(ABC):\n    @abstractmethod\n    def __init__(self) -> None:",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "GetModInfo",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class GetModInfo(ABC):\n    @abstractmethod\n    def __init__(self) -> None:\n        pass\n    @abstractmethod\n    def get_container(self) -> dict:\n        pass\nclass GetLocalVersionManifest(GetLocalVersion):\n    def __init__(self, game_path, test_mode = False) -> None:\n        self.game_path = game_path",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "GetLocalVersionManifest",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class GetLocalVersionManifest(GetLocalVersion):\n    def __init__(self, game_path, test_mode = False) -> None:\n        self.game_path = game_path\n        self.local_version = {}\n        self.search_manifest_bepinex(test_mode)\n    def get_version(self, mod_name: str):\n        if mod_name in self.local_version:\n            local_version = self.local_version[mod_name]\n            return local_version\n        return False",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "GetLatestVersionThunder",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class GetLatestVersionThunder(GetLatestVersion):\n    def __init__(self, container: dict) -> None:\n        self.latest_version = {}\n        self.container = container\n        self.count = 0\n        asyncio.run(self.search_all_versions())\n    def get_version(self, mod_name: str) -> str:\n        if mod_name in self.latest_version:\n            return self.latest_version[mod_name][\"version\"]\n    def get_download_url(self, mod_name: str) -> str:",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "GetModInfoYML",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class GetModInfoYML(GetModInfo):\n    def __init__(self) -> None:\n        self.mods = {}\n    def get_container(self) -> dict:\n        if self.mods == {}:\n            yml = self.__get_yml_local()\n            if not yml:\n                yml = self.__get_yml_github()\n            for mod in yml:\n                self.mods[mod[\"displayName\"]] = mod[\"authorName\"]",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "SearchMods",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class SearchMods:\n    def __init__(self, local_version: GetLocalVersionManifest, latest_version: GetLatestVersionThunder) -> None:\n        self.local_version = local_version\n        self.latest_version = latest_version\n        self.outdated_mod = []\n        self.missing_mod = []\n        self.extra_mod = []\n    def is_outdated_mod(self, mod_name: str) -> bool:\n        local_version = self.local_version.get_version(mod_name)\n        latest_version = self.latest_version.get_version(mod_name)",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "DownloadManager",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class DownloadManager:\n    def __init__(self, game_path) -> None:\n        self.game_path = game_path\n    def download_mod(self, mod_name: str, download_url: str) -> None:\n        while True:\n            request = requests.get(download_url, allow_redirects=True)\n            if request.status_code == 200:\n                path = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, mod_name)\n                if not os.path.exists(path):\n                    os.makedirs(path)",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "FilesManagerLethal",
+        "kind": 6,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "class FilesManagerLethal:\n    def __init__(self, game_path) -> None:\n        self.game_path = game_path\n    def move_dirs(self, fullname_mod: str, mod_path: str, *destination_path: str) -> None:\n        bepinex_folder = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, fullname_mod)\n        destination_path = os.path.join(self.game_path, CONS.TEMPORAL_FOLDER, *destination_path)\n        if not os.path.exists(destination_path):\n            os.makedirs(bepinex_folder, exist_ok=True)\n            os.makedirs(destination_path, exist_ok=True)\n        listdir = os.listdir(mod_path)",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "kind": 2,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "def start() -> str:\n    while True:\n        path = diropenbox(\"Select the Lethal Company folder\")\n        listdir = os.listdir(path)\n        for file in listdir:\n            if file.endswith(\".exe\"):\n                os.system(\"cls\")\n                return path\n        print(\"Please select the folder where the .exe is located\")\ndef main():",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "def main():\n    game_path = start()\n    local_version = GetLocalVersionManifest(game_path)\n    get_mod_info = GetModInfoYML()\n    container = get_mod_info.get_container()\n    latest_version = GetLatestVersionThunder(container)\n    os.system(\"cls\")\n    cprint(\"Done!\", \"green\")\n    get_mod_info = GetModInfoYML()\n    search_mods = SearchMods(local_version, latest_version)",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "CONS",
+        "kind": 5,
+        "importPath": "TobiMods.core",
+        "description": "TobiMods.core",
+        "peekOfCode": "CONS = LethalConstant()\n# Abstract classes in case i can think of other ways to get information\nclass GetLocalVersion(ABC):\n    @abstractmethod\n    def __init__(self) -> None:\n        pass\n    @abstractmethod\n    def get_version(self, mod_name: str) -> str:\n        pass\nclass GetLatestVersion(ABC):",
+        "detail": "TobiMods.core",
+        "documentation": {}
+    },
+    {
+        "label": "save_json",
+        "kind": 2,
+        "importPath": "TobiMods.helpers",
+        "description": "TobiMods.helpers",
+        "peekOfCode": "def save_json(path: str, name: str, saved: str):\n    with open(path+\"\\\\\"+name, \"w+\") as file:\n        json.dump(saved, file, indent=4)\ndef read_json(path: str):\n    with open(path, \"r\", encoding=\"utf-8-sig\") as file:\n        return json.load(file)\ndef read_yaml(path: str):\n    with open(path, \"r\") as file:\n        return yaml.load(file, Loader = yaml.SafeLoader)",
+        "detail": "TobiMods.helpers",
+        "documentation": {}
+    },
+    {
+        "label": "read_json",
+        "kind": 2,
+        "importPath": "TobiMods.helpers",
+        "description": "TobiMods.helpers",
+        "peekOfCode": "def read_json(path: str):\n    with open(path, \"r\", encoding=\"utf-8-sig\") as file:\n        return json.load(file)\ndef read_yaml(path: str):\n    with open(path, \"r\") as file:\n        return yaml.load(file, Loader = yaml.SafeLoader)",
+        "detail": "TobiMods.helpers",
+        "documentation": {}
+    },
+    {
+        "label": "read_yaml",
+        "kind": 2,
+        "importPath": "TobiMods.helpers",
+        "description": "TobiMods.helpers",
+        "peekOfCode": "def read_yaml(path: str):\n    with open(path, \"r\") as file:\n        return yaml.load(file, Loader = yaml.SafeLoader)",
+        "detail": "TobiMods.helpers",
+        "documentation": {}
+    }
+]
