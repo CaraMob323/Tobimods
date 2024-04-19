@@ -607,7 +607,7 @@
     minor: 2
     patch: 0
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\ShaosilGaming-GeneralImprovements\1.2.0\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\ShaosilGaming-GeneralImprovements\icon.png
 - manifestVersion: 1
   name: notnotnotswipez-MoreCompany
   authorName: notnotnotswipez
@@ -1662,7 +1662,7 @@
   versionNumber:
     major: 1
     minor: 5
-    patch: 0
+    patch: 5
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DullHorses-RuneScrap\icon.png
 - manifestVersion: 1
@@ -1706,7 +1706,7 @@
   versionNumber:
     major: 1
     minor: 4
-    patch: 0
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\AinaVT-LethalConfig\icon.png
 - manifestVersion: 1
@@ -1864,30 +1864,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\BMX-LobbyCompatibility\icon.png
 - manifestVersion: 1
-  name: loaforc-FacilityMeltdown
-  authorName: loaforc
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/loaforc/FacilityMeltdown/
-  displayName: FacilityMeltdown
-  description: Maybe taking the apparatus out isn't such a great idea... (v50)
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-    - BMX-LobbyCompatibility-1.1.0
-    - Sigurd-CSync-4.1.0
-    - Evaisa-LethalLib-0.15.1
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 2
-    minor: 5
-    patch: 1
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\loaforc-FacilityMeltdown\icon.png
-- manifestVersion: 1
   name: Kittenji-Dont_Touch_Me
   authorName: Kittenji
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Kittenji/Dont_Touch_Me/
@@ -1909,3 +1885,47 @@
     patch: 2
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Kittenji-Dont_Touch_Me\icon.png
+- manifestVersion: 1
+  name: Renegades-WalkieUse
+  authorName: Renegades
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Renegades/WalkieUse/
+  displayName: WalkieUse
+  description: Press R to use a walkie talkie in your inventory. CLIENT SIDE.
+    REBINDABLE IN-GAME
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Rune580-LethalCompany_InputUtils-0.5.5
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 5
+    patch: 0
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Renegades-WalkieUse\icon.png
+- manifestVersion: 1
+  name: Suskitech-AlwaysHearActiveWalkies
+  authorName: Suskitech
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/Suskitech/AlwaysHearActiveWalkies/
+  displayName: AlwaysHearActiveWalkies
+  description: Allows you to hear active walkies even when you're not holding them.
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 1
+    minor: 4
+    patch: 5
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\Suskitech-AlwaysHearActiveWalkies\1.4.5\icon.png
