@@ -1575,29 +1575,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DerplingDevelopments-SavageCompany\icon.png
 - manifestVersion: 1
-  name: TisRyno-LethalCompanyProgressionPatchFix
-  authorName: TisRyno
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/TisRyno/LethalCompanyProgressionPatchFix/
-  displayName: LethalCompanyProgressionPatchFix
-  description: Leveling and skillpoints through a managed GUI! Patched and
-    bugfixed until official copy updated.
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-    - xilophor-LethalNetworkAPI-2.1.6
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 7
-    patch: 4
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\TisRyno-LethalCompanyProgressionPatchFix\icon.png
-- manifestVersion: 1
   name: the_croods-GIANTROBOT
   authorName: the_croods
   websiteUrl: https://thunderstore.io/c/lethal-company/p/the_croods/GIANTROBOT/
@@ -2086,28 +2063,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DiFFoZ-BepInEx_Faster_Load_AssetBundles_Patcher\icon.png
 - manifestVersion: 1
-  name: kyxino-LethalModManager
-  authorName: kyxino
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/kyxino/LethalModManager/
-  displayName: LethalModManager
-  description: "[BETA] An in-game mod manager with the ability to sync mods
-    between hosts and clients."
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 0
-    minor: 1
-    patch: 4
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\kyxino-LethalModManager\icon.png
-- manifestVersion: 1
   name: LethalResonance-LETHALRESONANCE
   authorName: LethalResonance
   websiteUrl: https://thunderstore.io/c/lethal-company/p/LethalResonance/LETHALRESONANCE/
@@ -2155,4 +2110,29 @@
     minor: 2
     patch: 9
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\Scintesto-Monster_Plushies\1.2.9\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Scintesto-Monster_Plushies\icon.png
+- manifestVersion: 1
+  name: malco-Lategame_Upgrades
+  authorName: malco
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/malco/Lategame_Upgrades/
+  displayName: Lategame_Upgrades
+  description: V3.5.5! - v50 compatibility , UI Overhaul, new upgrade and more!
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+    - Evaisa-LethalLib-0.15.0
+    - Evaisa-HookGenPatcher-0.0.5
+    - Sigurd-CSync-4.1.0
+    - Rune580-LethalCompany_InputUtils-0.7.3
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 3
+    minor: 5
+    patch: 7
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\malco-Lategame_Upgrades\icon.png
