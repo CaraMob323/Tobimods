@@ -2207,3 +2207,24 @@
     patch: 2
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\JusteLoneWolf-MoreScraps\icon.png
+- manifestVersion: 1
+  name: DrFeederino-LC_API_V50
+  authorName: DrFeederino
+  websiteUrl: https://thunderstore.io/c/lethal-company/p/DrFeederino/LC_API_V50/
+  displayName: LC_API_V50
+  description: Multipurpose modding API for Lethal Company V50
+  gameVersion: "0"
+  networkMode: both
+  packageType: other
+  installMode: managed
+  loaders: []
+  dependencies:
+    - BepInEx-BepInExPack-5.4.2100
+  incompatibilities: []
+  optionalDependencies: []
+  versionNumber:
+    major: 3
+    minor: 4
+    patch: 8
+  enabled: true
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\DrFeederino-LC_API_V50\3.4.8\icon.png
