@@ -8,6 +8,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies: []
   incompatibilities: []
@@ -30,6 +31,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053318652
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -38,7 +40,7 @@
   versionNumber:
     major: 0
     minor: 7
-    patch: 4
+    patch: 7
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Rune580-LethalCompany_InputUtils\icon.png
 - manifestVersion: 1
@@ -52,6 +54,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -74,6 +77,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -96,6 +100,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -118,6 +123,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053317607
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -126,7 +132,7 @@
   versionNumber:
     major: 2
     minor: 6
-    patch: 0
+    patch: 4
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\x753-Mimics\icon.png
 - manifestVersion: 1
@@ -139,6 +145,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -160,6 +167,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -181,6 +189,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053315057
   loaders: []
   dependencies: []
   incompatibilities: []
@@ -188,7 +197,7 @@
   versionNumber:
     major: 1
     minor: 0
-    patch: 0
+    patch: 2
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\qwbarch-BarchLib\icon.png
 - manifestVersion: 1
@@ -204,18 +213,19 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053316207
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
     - Bobbie-UniTask-2.5.0
     - Bobbie-NAudio-2.2.2
-    - qwbarch-BarchLib-1.0.0
+    - qwbarch-BarchLib-1.0.2
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 7
-    patch: 0
+    minor: 8
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\qwbarch-Mirage\icon.png
 - manifestVersion: 1
@@ -229,6 +239,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies: []
   incompatibilities: []
@@ -249,16 +260,17 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053313622
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
-    - Rune580-LethalCompany_InputUtils-0.7.3
+    - Rune580-LethalCompany_InputUtils-0.7.7
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 2
-    minor: 4
-    patch: 1
+    minor: 6
+    patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\AllToasters-SpectateEnemies\icon.png
 - manifestVersion: 1
@@ -272,6 +284,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -295,6 +308,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -317,6 +331,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -339,6 +354,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -360,16 +376,17 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053312329
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
-    - x753-More_Suits-1.4.3
+    - x753-More_Suits-1.4.0
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 0
-    patch: 9
+    minor: 1
+    patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Verity-TooManySuits\icon.png
 - manifestVersion: 1
@@ -377,11 +394,13 @@
   authorName: FlipMods
   websiteUrl: https://thunderstore.io/c/lethal-company/p/FlipMods/LetMeLookDown/
   displayName: LetMeLookDown
-  description: This mod simply lets you look down all the way. Well, almost all the way.
+  description: V62 Compatible! This mod simply lets you look down all the way.
+    Well, almost all the way.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053311337
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -390,7 +409,7 @@
   versionNumber:
     major: 1
     minor: 0
-    patch: 1
+    patch: 2
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-LetMeLookDown\icon.png
 - manifestVersion: 1
@@ -403,6 +422,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053310072
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -411,7 +431,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 2
+    patch: 3
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\TheDeadSnake-Touchscreen\icon.png
 - manifestVersion: 1
@@ -427,6 +447,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -443,12 +464,13 @@
   authorName: FlipMods
   websiteUrl: https://thunderstore.io/c/lethal-company/p/FlipMods/MoreBlood/
   displayName: MoreBlood
-  description: Adds more blood for you psychopaths, and for those who want more
-    creepy vibes!
+  description: V62 Compatibility! Adds more blood for you psychopaths, and for
+    those who want more creepy vibes!
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053308952
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -457,7 +479,7 @@
   versionNumber:
     major: 1
     minor: 0
-    patch: 2
+    patch: 3
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-MoreBlood\icon.png
 - manifestVersion: 1
@@ -471,6 +493,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053307401
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -479,7 +502,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 2
+    patch: 3
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FutureSavior-Boombox_Sync_Fix\icon.png
 - manifestVersion: 1
@@ -492,6 +515,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -513,6 +537,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053305792
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -522,7 +547,7 @@
   versionNumber:
     major: 1
     minor: 2
-    patch: 4
+    patch: 5
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\CodeEnder-Custom_Boombox_Fix\icon.png
 - manifestVersion: 1
@@ -535,6 +560,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -556,6 +582,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -578,6 +605,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725476559886
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -585,10 +613,10 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 2
-    patch: 8
+    minor: 4
+    patch: 2
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\ShaosilGaming-GeneralImprovements\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\ShaosilGaming-GeneralImprovements\1.4.2\icon.png
 - manifestVersion: 1
   name: notnotnotswipez-MoreCompany
   authorName: notnotnotswipez
@@ -599,6 +627,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053302825
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -606,7 +635,7 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 9
+    minor: 10
     patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\notnotnotswipez-MoreCompany\icon.png
@@ -621,6 +650,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -645,6 +675,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -666,6 +697,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -688,6 +720,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -709,6 +742,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -731,6 +765,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -752,6 +787,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - notnotnotswipez-MoreCompany-1.8.1
@@ -774,6 +810,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - notnotnotswipez-MoreCompany-1.5.1
@@ -795,6 +832,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - x753-More_Suits-1.3.0
@@ -814,22 +852,23 @@
   displayName: FrostySuits
   description: "JOSH HUTCHERSON + PETER + BRIAN GRIFFIN UPDATE! Over a dozen suit
     skins, with more on the way! Join our server to suggest new skins:
-    https://discord.gg/shrek"
+    https://discord.gg/KpwNXzBAnC"
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053301445
   loaders: []
   dependencies:
+    - BepInEx-BepInExPack-5.4.2100
     - x753-More_Suits-1.3.0
     - Verity-TooManySuits-1.0.4
-    - BepInEx-BepInExPack-5.4.2100
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
-    major: 1
-    minor: 1
-    patch: 14
+    major: 2
+    minor: 0
+    patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\happyfrosty-FrostySuits\icon.png
 - manifestVersion: 1
@@ -842,6 +881,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - x753-More_Suits-1.4.1
@@ -865,6 +905,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - notnotnotswipez-MoreCompany-1.7.2
@@ -886,6 +927,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - notnotnotswipez-MoreCompany-1.5.1
@@ -907,6 +949,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053299954
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -915,7 +958,7 @@
   versionNumber:
     major: 2
     minor: 4
-    patch: 5
+    patch: 8
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\BunyaPineTree-ModelReplacementAPI\icon.png
 - manifestVersion: 1
@@ -928,6 +971,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -945,13 +989,14 @@
   authorName: FlipMods
   websiteUrl: https://thunderstore.io/c/lethal-company/p/FlipMods/TooManyEmotes/
   displayName: TooManyEmotes
-  description: V50 compatible! Adds over 200 new emotes! Includes emote wheel,
+  description: V62 compatible! Adds over 250 new emotes! Includes emote wheel,
     allows Masked Enemies to emote, adds emote music (can be muted), implements
     a system for purchasing emotes on the store (optional), and much more!
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725476558755
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -959,8 +1004,8 @@
   optionalDependencies: []
   versionNumber:
     major: 2
-    minor: 1
-    patch: 17
+    minor: 2
+    patch: 5
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-TooManyEmotes\icon.png
 - manifestVersion: 1
@@ -968,11 +1013,12 @@
   authorName: Hexnet111
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Hexnet111/SuitSaver/
   displayName: SuitSaver
-  description: A plugin for saving your last used suit. (Compatible with v50)
+  description: A plugin for saving your last used suit. (Compatible with v55)
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053297916
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -981,7 +1027,7 @@
   versionNumber:
     major: 1
     minor: 2
-    patch: 0
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Hexnet111-SuitSaver\icon.png
 - manifestVersion: 1
@@ -994,6 +1040,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - x753-More_Suits-1.4.1
@@ -1017,6 +1064,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - x753-More_Suits-1.3.2
@@ -1039,6 +1087,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1056,13 +1105,14 @@
   authorName: DrinkableWater
   websiteUrl: https://thunderstore.io/c/lethal-company/p/DrinkableWater/Brutal_Company_Minus/
   displayName: Brutal_Company_Minus
-  description: Updated for v50, BrutalCompany like mod with over 40+
-    events(certain modded ones aswell) that will scale harder overtime, includes
-    weather multipliers. Highly configurable.
+  description: BrutalCompany like mod with over 40+ events(certain modded ones
+    aswell) that will scale harder overtime, includes weather multipliers.
+    Highly configurable.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053296965
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1071,7 +1121,7 @@
   versionNumber:
     major: 0
     minor: 13
-    patch: 6
+    patch: 10
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DrinkableWater-Brutal_Company_Minus\icon.png
 - manifestVersion: 1
@@ -1085,6 +1135,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1097,27 +1148,6 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Solar32-PerformanceEnhancer\icon.png
 - manifestVersion: 1
-  name: vasanex-ItemQuickSwitch
-  authorName: vasanex
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/vasanex/ItemQuickSwitch/
-  displayName: ItemQuickSwitch
-  description: Use keybinds to access your items directly!
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 1
-    patch: 0
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\vasanex-ItemQuickSwitch\icon.png
-- manifestVersion: 1
   name: IntegrityChaos-LCCutscene
   authorName: IntegrityChaos
   websiteUrl: https://thunderstore.io/c/lethal-company/p/IntegrityChaos/LCCutscene/
@@ -1127,6 +1157,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1148,60 +1179,19 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053295993
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
+    - Bobbie-UniTask-2.5.0
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 0
-    patch: 12
+    minor: 1
+    patch: 7
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\loaforc-loaforcsSoundAPI\icon.png
-- manifestVersion: 1
-  name: jockie-LethalExpansionCore
-  authorName: jockie
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/jockie/LethalExpansionCore/
-  displayName: LethalExpansionCore
-  description: De-bloated LethalExpansion fork with only the LethalSDK module support
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 3
-    patch: 15
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\jockie-LethalExpansionCore\icon.png
-- manifestVersion: 1
-  name: rainbow137-MinecraftScraps
-  authorName: rainbow137
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/rainbow137/MinecraftScraps/
-  displayName: MinecraftScraps
-  description: Adds More Minecraft Scraps!
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - jockie-LethalExpansionCore-1.3.14
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 4
-    patch: 3
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\rainbow137-MinecraftScraps\icon.png
 - manifestVersion: 1
   name: Zaggy1024-OpenBodyCams
   authorName: Zaggy1024
@@ -1215,6 +1205,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725056885984
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1222,8 +1213,8 @@
   optionalDependencies: []
   versionNumber:
     major: 2
-    minor: 1
-    patch: 2
+    minor: 3
+    patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Zaggy1024-OpenBodyCams\icon.png
 - manifestVersion: 1
@@ -1236,6 +1227,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1257,6 +1249,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1278,6 +1271,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies: []
   incompatibilities: []
@@ -1298,6 +1292,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053293856
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1305,32 +1300,11 @@
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
-    major: 2
-    minor: 1
-    patch: 7
+    major: 3
+    minor: 2
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\xilophor-LethalNetworkAPI\icon.png
-- manifestVersion: 1
-  name: Dev1A3-ButlerAdditionalPlayerFix
-  authorName: Dev1A3
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/Dev1A3/ButlerAdditionalPlayerFix/
-  displayName: ButlerAdditionalPlayerFix
-  description: Fixes the butler enemy breaking when the player limit is higher than 4.
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 0
-    patch: 2
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Dev1A3-ButlerAdditionalPlayerFix\icon.png
 - manifestVersion: 1
   name: Evaisa-FixPluginTypesSerialization
   authorName: Evaisa
@@ -1342,6 +1316,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies: []
   incompatibilities: []
@@ -1362,6 +1337,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053292892
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1371,7 +1347,7 @@
   versionNumber:
     major: 5
     minor: 0
-    patch: 0
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Sigurd-CSync\icon.png
 - manifestVersion: 1
@@ -1379,13 +1355,14 @@
   authorName: FlipMods
   websiteUrl: https://thunderstore.io/c/lethal-company/p/FlipMods/HotbarPlus/
   displayName: HotbarPlus
-  description: Many quality of life and configurable hotbar settings and tweaks,
-    including setting custom hotbar sizes that will sync with the host. Energy
-    bars included.
+  description: V62 Compatible! Many quality of life and configurable hotbar
+    settings and tweaks, including setting custom hotbar sizes that will sync
+    with the host. Energy bars included.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053291926
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1393,8 +1370,8 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 6
-    patch: 7
+    minor: 7
+    patch: 5
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-HotbarPlus\icon.png
 - manifestVersion: 1
@@ -1402,12 +1379,13 @@
   authorName: Zaggy1024
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Zaggy1024/PathfindingLagFix/
   displayName: PathfindingLagFix
-  description: Lethal Company mod to fix stutters caused by the AI of Brackens,
-    Spore Lizards, and Snare Fleas.
+  description: Lethal Company mod to fix stutters caused by the AI of Brackens and
+    Snare Fleas. Updated for v60+.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053290968
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1415,8 +1393,8 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 2
-    patch: 1
+    minor: 4
+    patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Zaggy1024-PathfindingLagFix\icon.png
 - manifestVersion: 1
@@ -1424,12 +1402,13 @@
   authorName: FlipMods
   websiteUrl: https://thunderstore.io/c/lethal-company/p/FlipMods/ReservedItemSlotCore/
   displayName: ReservedItemSlotCore
-  description: The core mod for all ReservedItemSlot mods. Adds functionality for
-    all ReservedItemSlot mods and adds API functions!
+  description: V62 Compatible! The core mod for all ReservedItemSlot mods. Adds
+    functionality for all ReservedItemSlot mods and adds API functions!
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053288755
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1438,7 +1417,7 @@
   versionNumber:
     major: 2
     minor: 0
-    patch: 29
+    patch: 35
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-ReservedItemSlotCore\icon.png
 - manifestVersion: 1
@@ -1453,6 +1432,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725476557612
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1462,7 +1442,7 @@
   versionNumber:
     major: 2
     minor: 0
-    patch: 5
+    patch: 8
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-ReservedFlashlightSlot\icon.png
 - manifestVersion: 1
@@ -1475,6 +1455,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053287597
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1483,7 +1464,7 @@
   versionNumber:
     major: 1
     minor: 0
-    patch: 13
+    patch: 18
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\anormaltwig-LateCompany\icon.png
 - manifestVersion: 1
@@ -1498,6 +1479,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1520,6 +1502,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1543,6 +1526,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1565,6 +1549,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1586,6 +1571,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053286369
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1594,7 +1580,7 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 6
+    minor: 7
     patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DullHorses-RuneScrap\icon.png
@@ -1603,12 +1589,13 @@
   authorName: Zehs
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Zehs/Hitmarker/
   displayName: Hitmarker
-  description: "[v50][v49] Shows a hitmarker when you successfully hit an enemy.
-    With additional features. (Client-side)"
+  description: Shows a hitmarker when you successfully hit an enemy. With
+    additional features. (Client-side)
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053285298
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1617,7 +1604,7 @@
   versionNumber:
     major: 1
     minor: 2
-    patch: 2
+    patch: 3
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Zehs-Hitmarker\icon.png
 - manifestVersion: 1
@@ -1631,6 +1618,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1643,39 +1631,17 @@
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\AinaVT-LethalConfig\icon.png
 - manifestVersion: 1
-  name: thej01-FearOverhauled
-  authorName: thej01
-  websiteUrl: https://thunderstore.io/c/lethal-company/p/thej01/FearOverhauled/
-  displayName: FearOverhauled
-  description: Gives the "fear" mechanic (seeing a dead body, seeing a forest
-    giant) a gameplay purpose.
-  gameVersion: "0"
-  networkMode: both
-  packageType: other
-  installMode: managed
-  loaders: []
-  dependencies:
-    - BepInEx-BepInExPack-5.4.2100
-    - AinaVT-LethalConfig-1.4.0
-  incompatibilities: []
-  optionalDependencies: []
-  versionNumber:
-    major: 1
-    minor: 1
-    patch: 1
-  enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\thej01-FearOverhauled\icon.png
-- manifestVersion: 1
   name: Zehs-ToilHead
   authorName: Zehs
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Zehs/ToilHead/
   displayName: ToilHead
-  description: CoilHeads can sometimes spawn with a turret on their head. Highly
-    Configurable.
+  description: CoilHeads, Manticoils, and other entities can sometimes spawn with
+    a turret on their head. Highly Configurable.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053284236
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1683,8 +1649,8 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 3
-    patch: 7
+    minor: 7
+    patch: 2
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Zehs-ToilHead\icon.png
 - manifestVersion: 1
@@ -1697,6 +1663,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1718,6 +1685,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053281426
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1726,7 +1694,7 @@
   optionalDependencies: []
   versionNumber:
     major: 0
-    minor: 15
+    minor: 16
     patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Evaisa-LethalLib\icon.png
@@ -1742,6 +1710,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - Evaisa-LethalLib-0.14.1
@@ -1759,11 +1728,12 @@
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Swaggies/BetterEXP/
   displayName: BetterEXP
   description: Lethal Company mod to replace the vanilla EXP system with a more
-    advanced system.
+    advanced system. Includes custom Performance Report notes too.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053280265
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1771,7 +1741,7 @@
   optionalDependencies: []
   versionNumber:
     major: 2
-    minor: 1
+    minor: 4
     patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Swaggies-BetterEXP\icon.png
@@ -1785,6 +1755,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053278805
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1792,7 +1763,7 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 1
+    minor: 2
     patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\BMX-LobbyCompatibility\icon.png
@@ -1807,6 +1778,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053277627
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1815,7 +1787,7 @@
   versionNumber:
     major: 1
     minor: 2
-    patch: 2
+    patch: 4
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Kittenji-Dont_Touch_Me\icon.png
 - manifestVersion: 1
@@ -1829,6 +1801,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1851,6 +1824,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1867,12 +1841,12 @@
   authorName: Piggy
   websiteUrl: https://thunderstore.io/c/lethal-company/p/Piggy/Piggys_Variety_Mod/
   displayName: Piggys_Variety_Mod
-  description: Mod that makes what I want to make. Currently adds 1 Custom Weapon,
-    and 1 hazard.
+  description: Adds something cool. Currently adds 2 Custom Weapon, and 1 hazard.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053276124
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1881,8 +1855,8 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 1
-    patch: 24
+    minor: 3
+    patch: 14
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Piggy-Piggys_Variety_Mod\icon.png
 - manifestVersion: 1
@@ -1890,12 +1864,14 @@
   authorName: FlipMods
   websiteUrl: https://thunderstore.io/c/lethal-company/p/FlipMods/ObjectVolumeController/
   displayName: ObjectVolumeController
-  description: Allows adjusting the volume on the media objects, such as
-    television, boombox, and record player, by pressing the [-] and [+] keys.
+  description: V62 Compatible! Allows adjusting the volume on the media objects,
+    such as television, boombox, and record player, by pressing the [-] and [+]
+    keys.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053274784
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1904,7 +1880,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 0
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\FlipMods-ObjectVolumeController\icon.png
 - manifestVersion: 1
@@ -1917,6 +1893,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1939,6 +1916,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -1961,18 +1939,19 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053272221
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
     - Evaisa-FixPluginTypesSerialization-1.1.1
-    - Evaisa-LethalLib-0.15.1
     - MaxWasUnavailable-LethalModDataLib-1.2.2
+    - Evaisa-LethalLib-0.16.0
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 2
-    patch: 3
+    minor: 3
+    patch: 10
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\IAmBatby-LethalLevelLoader\icon.png
 - manifestVersion: 1
@@ -1985,17 +1964,18 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053273337
   loaders: []
   dependencies:
-    - xilophor-LethalNetworkAPI-2.1.6
-    - Evaisa-LethalLib-0.15.1
-    - IAmBatby-LethalLevelLoader-1.2.0
+    - Evaisa-LethalLib-0.16.1
+    - xilophor-LethalNetworkAPI-3.2.0
+    - IAmBatby-LethalLevelLoader-1.3.10
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 1
-    patch: 29
+    minor: 2
+    patch: 4
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\Piggy-LC_Office\icon.png
 - manifestVersion: 1
@@ -2009,15 +1989,16 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053271152
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
     - Evaisa-HookGenPatcher-0.0.5
-    - Evaisa-LethalLib-0.15.1
+    - Evaisa-LethalLib-0.16.1
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
-    major: 1
+    major: 2
     minor: 4
     patch: 0
   enabled: true
@@ -2032,6 +2013,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053270055
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -2039,8 +2021,8 @@
   optionalDependencies: []
   versionNumber:
     major: 0
-    minor: 5
-    patch: 0
+    minor: 6
+    patch: 4
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DiFFoZ-BepInEx_Faster_Load_AssetBundles_Patcher\icon.png
 - manifestVersion: 1
@@ -2048,25 +2030,26 @@
   authorName: LethalResonance
   websiteUrl: https://thunderstore.io/c/lethal-company/p/LethalResonance/LETHALRESONANCE/
   displayName: LETHALRESONANCE
-  description: MELTDOWN & DIVERSITY INTEGRATION! STREAM FRIENDLY. Immerse in 470+
-    enhanced audio tweaks and custom sounds for a scarier, deeper experience.
-    Feel sound roll off objects, blending intense bass and subtle reverb for a
-    captivating, immersive experience.
+  description: BIODIVERSITY! STREAM FRIENDLY. Immerse in 700+ enhanced audio
+    tweaks and custom sounds for a scarier, deeper experience. Feel sound roll
+    off objects, blending intense bass and subtle reverb for a captivating,
+    immersive experience.
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053268640
   loaders: []
   dependencies:
-    - Hardy-LCMaxSoundsFix-1.1.0
-    - loaforc-loaforcsSoundAPI-1.0.12
-    - ButteryStancakes-EnemySoundFixes-1.1.2
+    - Hardy-LCMaxSoundsFix-1.2.0
+    - loaforc-loaforcsSoundAPI-1.1.7
+    - ButteryStancakes-EnemySoundFixes-1.5.8
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 4
-    minor: 3
-    patch: 4
+    minor: 7
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\LethalResonance-LETHALRESONANCE\icon.png
 - manifestVersion: 1
@@ -2080,6 +2063,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 0
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -2098,25 +2082,27 @@
   authorName: malco
   websiteUrl: https://thunderstore.io/c/lethal-company/p/malco/Lategame_Upgrades/
   displayName: Lategame_Upgrades
-  description: V3.6.5! - Hunter API, more samples, fixes and more!
+  description: V3.10.1! - Two new upgrades related to water such as oxygen
+    consumption and its movement hinderance, fixes & more
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725476556422
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
     - Evaisa-HookGenPatcher-0.0.5
     - Evaisa-LethalLib-0.15.0
-    - Rune580-LethalCompany_InputUtils-0.7.3
-    - Sigurd-CSync-4.1.0
-    - WhiteSpike-Interactive_Terminal_API-1.1.0
+    - Sigurd-CSync-5.0.1
+    - Rune580-LethalCompany_InputUtils-0.7.7
+    - WhiteSpike-Interactive_Terminal_API-1.1.3
   incompatibilities: []
   optionalDependencies: []
   versionNumber:
     major: 3
-    minor: 6
-    patch: 5
+    minor: 10
+    patch: 1
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\malco-Lategame_Upgrades\icon.png
 - manifestVersion: 1
@@ -2129,6 +2115,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053267054
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -2138,7 +2125,7 @@
   versionNumber:
     major: 1
     minor: 1
-    patch: 0
+    patch: 3
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\WhiteSpike-Interactive_Terminal_API\icon.png
 - manifestVersion: 1
@@ -2152,6 +2139,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053266061
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -2159,8 +2147,8 @@
   optionalDependencies: []
   versionNumber:
     major: 1
-    minor: 2
-    patch: 0
+    minor: 5
+    patch: 8
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\ButteryStancakes-EnemySoundFixes\icon.png
 - manifestVersion: 1
@@ -2174,6 +2162,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053265078
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -2181,7 +2170,7 @@
   optionalDependencies: []
   versionNumber:
     major: 2
-    minor: 2
+    minor: 3
     patch: 0
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\SimonTendo-LCLegDayMod\icon.png
@@ -2195,6 +2184,7 @@
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053264049
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -2204,7 +2194,7 @@
   versionNumber:
     major: 0
     minor: 2
-    patch: 2
+    patch: 4
   enabled: true
   icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\JusteLoneWolf-MoreScraps\icon.png
 - manifestVersion: 1
@@ -2212,11 +2202,12 @@
   authorName: DrFeederino
   websiteUrl: https://thunderstore.io/c/lethal-company/p/DrFeederino/LC_API_V50/
   displayName: LC_API_V50
-  description: Multipurpose modding API for Lethal Company V50
+  description: Multipurpose modding API for Lethal Company V60
   gameVersion: "0"
   networkMode: both
   packageType: other
   installMode: managed
+  installedAtTime: 1725053262986
   loaders: []
   dependencies:
     - BepInEx-BepInExPack-5.4.2100
@@ -2225,6 +2216,6 @@
   versionNumber:
     major: 3
     minor: 4
-    patch: 8
+    patch: 10
   enabled: true
-  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\cache\DrFeederino-LC_API_V50\3.4.8\icon.png
+  icon: C:\Users\caram\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Online\BepInEx\plugins\DrFeederino-LC_API_V50\icon.png
