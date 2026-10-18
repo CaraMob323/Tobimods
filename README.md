@@ -1,6 +1,6 @@
 # TobiMods
 
-TobiMods is a "Lethal Company" mod updater and installer that aims to make all your friends have the same mods with just one click.
+TobiMods is a "Bepinex" mod updater and installer that aims to make all your friends have the same mods with just one click.
 
 ## Usage
 
